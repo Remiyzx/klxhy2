@@ -162,7 +162,6 @@
         tr:hover { background-color: #fef2f2; }
 
         .warning-box { background-color: #fffbeb; border-left: 8px solid #f59e0b; padding: 20px 24px; margin: 25px 0; border-radius: 8px; font-size: 1.2rem; }
-        .dramatic-box { background-color: #f0fdf4; border-left: 8px solid #16a34a; padding: 20px 24px; margin: 25px 0; border-radius: 8px; font-size: 1.2rem; }
 
         /* Rice Grid Box Styles */
         .mizige-box { width: 68px; height: 68px; display: inline-block; vertical-align: middle; margin: 2px 4px; }
@@ -211,11 +210,11 @@
         </div>
     </div>
 
-    <!-- SVG Direction Marker Definition -->
+    <!-- SVG Red Arrow Marker Definition -->
     <svg style="display:none;">
         <defs>
             <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
             </marker>
         </defs>
     </svg>
@@ -264,14 +263,14 @@
             </div>
         </div>
 
-        <!-- Section 2: Basic Strokes (With Red Directional Arrows) -->
+        <!-- Section 2: Basic Strokes (With Red Directional Arrows & Clean Line Paths) -->
         <div id="basic" class="section">
             <h1>
                 <span>2. Basic Strokes of Chinese Characters</span>
                 <span class="page-badge">KLXHY pg 8, 10</span>
             </h1>
             
-            <p>Write each stroke in <strong>one single continuous stroke movement</strong>. Follow the red arrows for stroke direction:</p>
+            <p>Write each stroke in <strong>one single continuous stroke movement</strong>. Follow the red arrows for writing direction:</p>
 
             <table>
                 <tr>
@@ -291,12 +290,12 @@
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 42 32 C 48 38 62 58 56 65 C 50 70 38 62 38 52 Z" fill="#171717"/>
-                                <path d="M 28 28 Q 38 45 48 55" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <path d="M 38 32 L 62 58" stroke="#171717" stroke-width="9" stroke-linecap="round"/>
+                                <path d="M 28 22 L 54 48" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
                             </svg>
                         </div>
                     </td>
-                    <td>Small slanting stroke written from top to bottom.</td>
+                    <td>Small slanting stroke written from top-left to bottom-right.</td>
                     <td class="hanzi-text" style="font-size:1.8em;">寸</td>
                 </tr>
                 <!-- héng -->
@@ -310,8 +309,8 @@
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 18 54 C 35 50 65 47 82 44 C 85 49 80 53 76 53 C 60 55 35 57 18 58 Z" fill="#171717"/>
-                                <path d="M 20 32 L 78 27" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <path d="M 18 50 L 82 50" stroke="#171717" stroke-width="8" stroke-linecap="round"/>
+                                <path d="M 18 35 L 78 35" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
                             </svg>
                         </div>
                     </td>
@@ -329,8 +328,8 @@
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 47 15 C 52 15 54 20 53 45 C 52 65 51 82 48 85 C 46 85 45 65 46 45 Z" fill="#171717"/>
-                                <path d="M 32 20 L 32 78" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <path d="M 50 18 L 50 82" stroke="#171717" stroke-width="8" stroke-linecap="round"/>
+                                <path d="M 35 18 L 35 78" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
                             </svg>
                         </div>
                     </td>
@@ -348,8 +347,8 @@
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 75 20 C 72 24 62 42 48 60 C 36 74 22 83 18 85 C 19 82 32 70 45 54 C 58 38 68 22 75 20 Z" fill="#171717"/>
-                                <path d="M 82 30 Q 60 55 30 82" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <path d="M 75 22 Q 55 52 22 80" stroke="#171717" stroke-width="8" stroke-linecap="round" fill="none"/>
+                                <path d="M 78 30 Q 60 55 28 82" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
                             </svg>
                         </div>
                     </td>
@@ -367,8 +366,8 @@
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 22 22 C 32 30 48 48 65 65 C 74 72 84 76 88 76 C 85 78 72 78 60 70 C 45 56 30 38 22 22 Z" fill="#171717"/>
-                                <path d="M 18 32 Q 42 54 75 80" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <path d="M 22 22 Q 48 52 78 80" stroke="#171717" stroke-width="8" stroke-linecap="round" fill="none"/>
+                                <path d="M 18 30 Q 42 55 75 82" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
                             </svg>
                         </div>
                     </td>
@@ -386,12 +385,12 @@
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 28 66 Q 45 52 62 38 C 58 42 42 58 26 64 Z" fill="#171717"/>
-                                <path d="M 20 78 L 70 30" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <path d="M 28 72 L 72 38" stroke="#171717" stroke-width="8" stroke-linecap="round"/>
+                                <path d="M 22 78 L 68 42" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
                             </svg>
                         </div>
                     </td>
-                    <td>An upward short stroke from bottom left to top right.</td>
+                    <td>An upward short stroke written from bottom left to top right.</td>
                     <td class="hanzi-text" style="font-size:1.8em;">刁</td>
                 </tr>
             </table>
@@ -421,7 +420,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 30 C 45 28 72 26 72 32 C 60 52 40 70 22 82 Z" fill="#171717"/>
+                                <path d="M 20 30 L 75 30 Q 52 55 25 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -436,7 +435,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 62 20 L 26 62 L 78 78 Z" fill="#171717"/>
+                                <path d="M 65 20 L 25 62 L 75 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -452,7 +451,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 40 20 L 40 75 L 68 50 C 58 58 46 68 46 75 L 46 20 Z" fill="#171717"/>
+                                <path d="M 38 20 L 38 78 L 72 48" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -467,7 +466,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 30 L 75 30 L 75 80 C 70 80 68 36 20 36 Z" fill="#171717"/>
+                                <path d="M 20 30 L 75 30 L 75 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -482,7 +481,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 30 20 L 30 75 L 80 75 C 80 70 36 68 36 20 Z" fill="#171717"/>
+                                <path d="M 30 20 L 30 75 L 80 75" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -497,7 +496,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 68 20 L 25 65 L 75 65 C 75 60 32 60 68 20 Z" fill="#171717"/>
+                                <path d="M 70 20 L 25 65 L 75 65" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -531,7 +530,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 35 L 75 35 L 58 55 Z" fill="#171717"/>
+                                <path d="M 20 35 L 75 35 L 58 55" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -546,7 +545,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 50 15 L 50 82 L 32 65 Z" fill="#171717"/>
+                                <path d="M 50 18 L 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -561,7 +560,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 35 20 Q 55 50 78 80 L 78 60 Z" fill="#171717"/>
+                                <path d="M 35 20 Q 55 52 75 80 L 75 58" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -576,7 +575,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 22 42 Q 45 75 72 68 L 60 50 Z" fill="#171717"/>
+                                <path d="M 20 42 Q 45 78 72 68 L 60 50" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -591,7 +590,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 50 20 Q 72 50 50 82 L 35 66 Z" fill="#171717"/>
+                                <path d="M 50 20 Q 70 52 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -606,7 +605,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 35 20 L 35 70 Q 35 80 50 80 L 78 80 L 78 60 Z" fill="#171717"/>
+                                <path d="M 35 20 L 35 70 Q 35 80 50 80 L 78 80 L 78 60" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
@@ -634,7 +633,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 30 L 75 30 L 75 80 L 55 65 Z" fill="#dc2626"/>
+                                <path d="M 20 30 L 75 30 L 75 80 L 55 65" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                         <div>
@@ -652,7 +651,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 25 32 L 65 32 L 60 40 L 45 68 L 78 40 L 42 74 Z" fill="#dc2626"/>
+                                <path d="M 25 32 L 68 32 L 48 68 L 78 40" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                         <div>
@@ -670,7 +669,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 25 L 50 25 Q 65 55 80 75 L 80 55 Z" fill="#dc2626"/>
+                                <path d="M 20 25 L 50 25 Q 65 55 80 78 L 80 58" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                         <div>
@@ -688,7 +687,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 22 28 C 45 26 62 26 62 30 C 42 50 38 68 55 70 C 72 72 80 62 80 52 L 88 52 C 88 78 62 80 46 76 C 30 70 32 50 52 35 L 22 35 Z" fill="#dc2626"/>
+                                <path d="M 22 28 L 65 28 L 40 52 Q 52 78 78 78 L 78 60" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                         <div>
@@ -706,7 +705,7 @@
                                 <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
                                 <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
                                 <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 30 20 L 30 45 L 70 45 L 70 80 L 50 65 Z" fill="#dc2626"/>
+                                <path d="M 30 20 L 30 45 L 70 45 L 70 80 L 52 66" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                             </svg>
                         </div>
                         <div>
@@ -728,17 +727,17 @@
                     <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
                         <strong>1. Hooks:</strong>
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 15 L 50 82 L 32 65 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 18 L 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">shù gōu</span>
                         </div>
                         vs.
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 35 20 Q 55 50 78 80 L 78 60 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 35 20 Q 55 52 75 80 L 75 58" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">xié gōu</span>
                         </div>
                         vs.
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 20 Q 72 50 50 82 L 35 66 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 20 Q 70 52 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">wān gōu</span>
                         </div>
                     </div>
@@ -747,12 +746,12 @@
                     <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
                         <strong>2. Angles:</strong>
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 68 20 L 25 65 L 75 65 C 75 60 32 60 68 20 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 70 20 L 25 65 L 75 65" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">piě zhé</span>
                         </div>
                         vs.
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 62 20 L 26 62 L 78 78 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 65 20 L 25 62 L 75 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">piě diǎn</span>
                         </div>
                     </div>
@@ -761,12 +760,12 @@
                     <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
                         <strong>3. End direction:</strong>
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 15 L 50 82 L 32 65 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 18 L 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">shù gōu (hooks left)</span>
                         </div>
                         vs.
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 40 20 L 40 75 L 68 50 C 58 58 46 68 46 75 L 46 20 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 38 20 L 38 78 L 72 48" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">shù tí (lifts right)</span>
                         </div>
                     </div>
@@ -775,12 +774,12 @@
                     <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
                         <strong>4. Turn vs Lift:</strong>
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 25 32 L 65 32 L 60 40 L 45 68 L 78 40 L 42 74 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 25 32 L 68 32 L 48 68 L 78 40" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">héng zhé tí</span>
                         </div>
                         vs.
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 30 L 75 30 L 75 80 L 55 65 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 30 L 75 30 L 75 80 L 55 65" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">héng zhé gōu</span>
                         </div>
                     </div>
@@ -789,12 +788,12 @@
                     <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
                         <strong>5. Straight vs Curve:</strong>
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 25 L 50 25 Q 65 55 80 75 L 80 55 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 25 L 50 25 Q 65 55 80 78 L 80 58" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">héng xié gōu</span>
                         </div>
                         vs.
                         <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 22 28 C 45 26 62 26 62 30 C 42 50 38 68 55 70 C 72 72 80 62 80 52 L 88 52 Z" fill="#171717"/></svg></div>
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 22 28 L 65 28 L 40 52 Q 52 78 78 78 L 78 60" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
                             <span class="kw-pinyin" style="font-size:0.9em;">héng zhé wān gōu</span>
                         </div>
                     </div>
@@ -1017,7 +1016,7 @@
                                 <span class="mizige-box" style="width:40px; height:40px;">
                                     <svg viewBox="0 0 100 100">
                                         <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/>
-                                        <path d="M 22 42 Q 45 75 72 68 L 60 50 Z" fill="#171717"/>
+                                        <path d="M 20 42 Q 45 78 72 68 L 60 50" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                                     </svg>
                                 </span>
                             </span> 
@@ -1142,59 +1141,59 @@
 
                 <div class="rule-grid">
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">1. 人 (rén) - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-1')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">1. 人 (rén) - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-1')">Answer</button></div>
                         <div id="ex-b-1" class="answer-box">1st: piě | 2nd: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">2. 丁 (dīng) - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-2')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">2. 丁 (dīng) - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-2')">Answer</button></div>
                         <div id="ex-b-2" class="answer-box">1st: héng | 2nd: shù gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">3. 大 (dà) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-3')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">3. 大 (dà) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-3')">Answer</button></div>
                         <div id="ex-b-3" class="answer-box">1st: héng | 2nd: piě | 3rd: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">4. 马 (mǎ) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-4')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">4. 马 (mǎ) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-4')">Answer</button></div>
                         <div id="ex-b-4" class="answer-box">1st: héng zhé | 2nd: shù zhé zhé gōu | 3rd: héng</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">5. 小 (xiǎo) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-5')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">5. 小 (xiǎo) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-5')">Answer</button></div>
                         <div id="ex-b-5" class="answer-box">1st: shù gōu | 2nd: diǎn (left) | 3rd: diǎn (right)</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">6. 门 (mén) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-6')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">6. 门 (mén) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-6')">Answer</button></div>
                         <div id="ex-b-6" class="answer-box">1st: diǎn | 2nd: shù | 3rd: héng zhé gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">7. 木 (mù) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-7')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">7. 木 (mù) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-7')">Answer</button></div>
                         <div id="ex-b-7" class="answer-box">1st: héng | 2nd: shù | 3rd: piě | 4th: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">8. 六 (liù) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-8')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">8. 六 (liù) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-8')">Answer</button></div>
                         <div id="ex-b-8" class="answer-box">1st: diǎn | 2nd: héng | 3rd: piě | 4th: diǎn</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">9. 中 (zhōng) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-9')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">9. 中 (zhōng) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-9')">Answer</button></div>
                         <div id="ex-b-9" class="answer-box">1st: shù | 2nd: héng zhé | 3rd: héng | 4th: shù</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">10. 火 (huǒ) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-10')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">10. 火 (huǒ) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-10')">Answer</button></div>
                         <div id="ex-b-10" class="answer-box">1st: diǎn | 2nd: piě | 3rd: piě | 4th: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">11. 手 (shǒu) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-11')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">11. 手 (shǒu) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-11')">Answer</button></div>
                         <div id="ex-b-11" class="answer-box">1st: piě | 2nd: héng | 3rd: héng | 4th: shù gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">12. 水 (shuǐ) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-12')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">12. 水 (shuǐ) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-12')">Answer</button></div>
                         <div id="ex-b-12" class="answer-box">1st: shù gōu | 2nd: héng piě | 3rd: piě | 4th: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">13. 白 (bái) - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-13')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">13. 白 (bái) - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-13')">Answer</button></div>
                         <div id="ex-b-13" class="answer-box">1st: piě | 2nd: shù | 3rd: héng zhé | 4th: héng | 5th: héng</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt" class="hanzi-text">14. 汉 (hàn) - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-14')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">14. 汉 (hàn) - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-14')">Answer</button></div>
                         <div id="ex-b-14" class="answer-box">1st: diǎn | 2nd: diǎn | 3rd: tí | 4th: héng piě | 5th: nà</div>
                     </div>
                 </div>
@@ -1321,7 +1320,7 @@
                 </div>
 
                 <div class="interactive-q-item">
-                    <div class="q-header"><span class="q-prompt" class="hanzi-text">6. A character like "明 (míng)" has a semi-enclosed structure.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-6')">Answer</button></div>
+                    <div class="q-header"><span class="q-prompt hanzi-text">6. A character like "明 (míng)" has a semi-enclosed structure.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-6')">Answer</button></div>
                     <div id="ex-e-6" class="answer-box">False (x) &mdash; "明" is a Left-Right structure (日 + 月).</div>
                 </div>
 
