@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 2 - Chinese Characters Teaching Notes</title>
-    <!-- Import Andika Font for Pinyin & Standard KaiTi for Hanzi -->
+    <!-- Import Andika Font for Standard Pinyin & LXGW WenKai for Standard KaiTi Hanzi -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=LXGW+WenKai+TC:wght@400;700&display=swap');
 
         :root {
-            /* Auspicious Red Theme */
-            --primary: #dc2626;        /* Deep Red */
-            --primary-dark: #991b1b;   /* Dark Red */
-            --primary-light: #fee2e2;  /* Soft Red Tint */
-            --topbar-bg: #1a1a1a;      /* Dark Charcoal */
-            --topbar-hover: #333333;   /* Light Charcoal */
-            --topbar-active: #ef4444;  /* Bright Red */
-            --bg-color: #fcfcfc;       
-            --text-color: #171717;     
+            /* Layered Elegant Red Palette */
+            --primary-burgundy: #881337;  /* Deep Burgundy */
+            --primary-crimson: #be123c;   /* Rich Crimson */
+            --primary-rose: #e11d48;      /* Vibrant Rose */
+            --primary-coral: #fda4af;     /* Warm Coral Tint */
+            --primary-soft: #fff1f2;      /* Soft Rose Background Tint */
             
-            --kw-stroke: #ea580c;      
-            --kw-rule: #0284c7;        
-            --kw-struct: #16a34a;      
+            --topbar-bg: #1c1917;         /* Warm Dark Charcoal */
+            --topbar-hover: #292524;      
+            --topbar-active: #be123c;     
+            --bg-color: #fafaf9;          
+            --text-color: #1c1917;        
+            
+            --kw-stroke: #d97706;         
+            --kw-rule: #0284c7;           
+            --kw-struct: #15803d;         
         }
         
         body {
@@ -34,14 +37,14 @@
             line-height: 1.6;
         }
 
-        /* Standard Chinese Pinyin Class */
+        /* Standard Pinyin Font Class */
         .pinyin-font, .kw-pinyin, .pinyin-sample {
             font-family: 'Andika', 'Century Gothic', sans-serif !important;
         }
 
-        /* Standard Formal KaiTi Class for ALL Chinese Characters */
-        .hanzi-text, .hanzi-text * {
-            font-family: 'Kaiti', 'STKaiti', 'KaiTi_GB2312', 'DFKai-SB', serif !important;
+        /* Simplified Chinese Standard Textbook KaiTi Font Stack */
+        .hanzi-text, .hanzi-text *, [class*="hanzi"], svg text {
+            font-family: 'LXGW WenKai TC', 'KaiTi', '楷体', 'STKaiti', '华文楷体', 'KaiTi_GB2312', 'DFKai-SB', serif !important;
         }
 
         /* Top Navigation Bar (Sticky & Frozen) */
@@ -50,16 +53,17 @@
             top: 0;
             z-index: 1000;
             background-color: var(--topbar-bg);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
         }
 
         .top-nav-header {
-            padding: 10px 25px;
-            background-color: var(--primary);
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary-burgundy) 0%, var(--primary-crimson) 50%, var(--primary-rose) 100%);
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: white;
+            box-shadow: inset 0 -1px 0 rgba(255,255,255,0.15);
         }
 
         .top-nav-header h2 {
@@ -72,7 +76,7 @@
 
         .top-nav-header span {
             font-size: 1.05rem;
-            color: #fecaca;
+            color: var(--primary-coral);
             font-weight: 600;
         }
 
@@ -80,26 +84,34 @@
             display: flex;
             justify-content: center;
             background-color: var(--topbar-bg);
-            border-bottom: 1px solid #333333;
+            border-bottom: 1px solid #292524;
         }
 
         .menu-btn {
-            padding: 10px 14px;
+            padding: 10px 16px;
             border: none;
             background: none;
-            color: #d4d4d4;
+            color: #e7e5e4;
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             border-bottom: 4px solid transparent;
             flex: 1 1 auto;
             text-align: center;
             white-space: nowrap;
         }
 
-        .menu-btn:hover { background-color: var(--topbar-hover); color: #ffffff; }
-        .menu-btn.active { background-color: var(--topbar-hover); border-bottom: 4px solid var(--topbar-active); color: #f87171; }
+        .menu-btn:hover { 
+            background-color: var(--topbar-hover); 
+            color: #ffffff; 
+        }
+        
+        .menu-btn.active { 
+            background-color: var(--topbar-hover); 
+            border-bottom: 4px solid var(--primary-rose); 
+            color: #fecdd3; 
+        }
 
         /* Main Content Container */
         .content {
@@ -112,10 +124,11 @@
             display: none;
             animation: fadeIn 0.4s ease-in-out;
             background: white;
-            padding: 40px 45px;
-            border-radius: 12px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+            padding: 40px 48px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(136, 19, 55, 0.06);
             margin-bottom: 40px;
+            border: 1px solid #ffe4e6;
         }
 
         .section.active { display: block; }
@@ -126,60 +139,63 @@
         }
 
         .page-badge {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary-burgundy), var(--primary-crimson));
             color: white;
-            padding: 4px 12px;
+            padding: 4px 14px;
             border-radius: 14px;
             font-size: 0.75em;
             font-weight: bold;
             margin-left: 12px;
             display: inline-block;
             vertical-align: middle;
+            box-shadow: 0 2px 6px rgba(136, 19, 55, 0.2);
         }
 
         .hero-banner {
             text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            border-radius: 12px;
-            border: 2px solid #fca5a5;
-            margin-bottom: 30px;
+            padding: 32px;
+            background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 50%, #fda4af 100%);
+            border-radius: 14px;
+            border: 2px solid #f43f5e;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.08);
         }
 
-        .hero-banner h1 { font-size: 3.2rem; color: var(--primary-dark); margin: 0; border: none; padding: 0; }
-        .hero-banner p { font-size: 1.35rem; color: #7f1d1d; margin: 8px 0 0 0; font-weight: bold; }
+        .hero-banner h1 { font-size: 3.2rem; color: var(--primary-burgundy); margin: 0; border: none; padding: 0; text-shadow: 1px 1px 0 rgba(255,255,255,0.6); }
+        .hero-banner p { font-size: 1.35rem; color: #9f1239; margin: 8px 0 0 0; font-weight: bold; }
 
-        h1 { color: var(--primary); font-size: 2.3rem; margin-top: 0; border-bottom: 3px solid #f5f5f5; padding-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
-        h2 { color: #171717; font-size: 1.85rem; margin-top: 30px; }
-        h3 { font-size: 1.45rem; color: #262626; }
+        h1 { color: var(--primary-burgundy); font-size: 2.3rem; margin-top: 0; border-bottom: 3px solid #ffe4e6; padding-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+        h2 { color: #1c1917; font-size: 1.85rem; margin-top: 30px; }
+        h3 { font-size: 1.45rem; color: #292524; }
 
-        .kw-pinyin { background-color: #f5f5f5; padding: 3px 10px; border-radius: 6px; font-size: 1.2em; color: var(--primary-dark); font-weight: bold; border: 1px solid #d4d4d4; }
+        .kw-pinyin { background-color: var(--primary-soft); padding: 3px 10px; border-radius: 6px; font-size: 1.2em; color: var(--primary-burgundy); font-weight: bold; border: 1px solid #fecdd3; }
 
         table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 1.15rem; }
-        th, td { border: 2px solid #e5e5e5; padding: 14px 18px; text-align: left; vertical-align: middle; }
-        th { background-color: #fafafa; color: #171717; font-weight: bold; font-size: 1.2rem; }
-        tr:nth-child(even) { background-color: #fdfdfd; }
-        tr:hover { background-color: #fef2f2; }
+        th, td { border: 2px solid #fecdd3; padding: 14px 18px; text-align: left; vertical-align: middle; }
+        th { background-color: var(--primary-soft); color: var(--primary-burgundy); font-weight: bold; font-size: 1.2rem; }
+        tr:nth-child(even) { background-color: #fff1f2; }
+        tr:hover { background-color: #ffe4e6; }
 
         .warning-box { background-color: #fffbeb; border-left: 8px solid #f59e0b; padding: 20px 24px; margin: 25px 0; border-radius: 8px; font-size: 1.2rem; }
+        .concept-box { background-color: #f0fdf4; border-left: 8px solid #16a34a; padding: 22px 26px; margin: 28px 0; border-radius: 10px; border-top: 1px solid #bbf7d0; border-right: 1px solid #bbf7d0; border-bottom: 1px solid #bbf7d0; }
 
         /* Rice Grid Box Styles */
         .mizige-box { width: 68px; height: 68px; display: inline-block; vertical-align: middle; margin: 2px 4px; }
-        .mizige-box-lg { width: 80px; height: 80px; display: inline-block; vertical-align: middle; margin: 4px 6px; }
+        .mizige-box-lg { width: 82px; height: 80px; display: inline-block; vertical-align: middle; margin: 4px 6px; }
 
-        .rule-card, .exercise-card { background: #ffffff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 28px; margin-bottom: 30px; border-top: 8px solid var(--kw-rule); }
-        .exercise-card { border-top: 8px solid var(--primary); }
+        .rule-card, .exercise-card { background: #ffffff; border: 1px solid #ffe4e6; border-radius: 12px; padding: 28px; margin-bottom: 30px; border-top: 8px solid var(--kw-rule); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .exercise-card { border-top: 8px solid var(--primary-crimson); }
         .rule-card h3, .exercise-card h3 { margin-top: 0; display: flex; align-items: center; justify-content: space-between; }
 
         .rule-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin: 20px 0; }
-        .grid-card { background: #fafafa; border: 2px solid #e5e5e5; border-radius: 10px; padding: 18px 22px; border-left: 6px solid var(--kw-stroke); font-size: 1.15rem; display: flex; flex-direction: column; gap: 8px; }
+        .grid-card { background: var(--primary-soft); border: 2px solid #fecdd3; border-radius: 10px; padding: 18px 22px; border-left: 6px solid var(--primary-rose); font-size: 1.15rem; display: flex; flex-direction: column; gap: 8px; }
 
-        .interactive-q-item { background: #fafafa; border: 2px solid #e5e5e5; border-radius: 10px; padding: 18px 22px; margin-bottom: 18px; }
+        .interactive-q-item { background: #fff1f2; border: 2px solid #fecdd3; border-radius: 10px; padding: 18px 22px; margin-bottom: 18px; }
         .q-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .q-prompt { font-size: 1.2rem; font-weight: bold; color: #171717; flex: 1 1 auto; }
+        .q-prompt { font-size: 1.2rem; font-weight: bold; color: #1c1917; flex: 1 1 auto; }
 
-        .reveal-btn { background-color: var(--primary); color: white; border: none; padding: 8px 20px; border-radius: 20px; font-size: 1.05rem; font-weight: bold; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-        .reveal-btn:hover { background-color: var(--primary-dark); }
+        .reveal-btn { background: linear-gradient(135deg, var(--primary-crimson), var(--primary-rose)); color: white; border: none; padding: 8px 20px; border-radius: 20px; font-size: 1.05rem; font-weight: bold; cursor: pointer; transition: all 0.2s; white-space: nowrap; box-shadow: 0 2px 6px rgba(190, 18, 60, 0.25); }
+        .reveal-btn:hover { background: linear-gradient(135deg, var(--primary-burgundy), var(--primary-crimson)); }
 
         .answer-box { display: none; margin-top: 15px; padding: 14px 20px; background-color: #f0fdf4; border-left: 6px solid #16a34a; border-radius: 6px; font-size: 1.2rem; color: #15803d; font-weight: bold; animation: fadeIn 0.3s ease; }
         .answer-box.show { display: block; }
@@ -194,30 +210,24 @@
             <h2>LESSON 2: THE CHINESE CHARACTERS</h2>
             <span>Teaching Notes</span>
         </div>
+        <!-- Row 1: Pre-Break Content -->
         <div class="menu-row">
-            <button class="menu-btn active" onclick="showSection('intro', this)">1. Intro</button>
-            <button class="menu-btn" onclick="showSection('basic', this)">2. Basic Strokes (6)</button>
-            <button class="menu-btn" onclick="showSection('turns', this)">3. Turn Strokes (6)</button>
-            <button class="menu-btn" onclick="showSection('hooks', this)">4. Hook Strokes (6)</button>
-            <button class="menu-btn" onclick="showSection('complex', this)">5. Complex Strokes (5)</button>
+            <button class="menu-btn active" onclick="showSection('intro', this)">Intro</button>
+            <button class="menu-btn" onclick="showSection('basic', this)">Basic Strokes (6)</button>
+            <button class="menu-btn" onclick="showSection('concept', this)">Core Concept: Read & Write</button>
+            <button class="menu-btn" onclick="showSection('turns', this)">Turn Strokes (6)</button>
+            <button class="menu-btn" onclick="showSection('hooks', this)">Hook Strokes (6)</button>
+            <button class="menu-btn" onclick="showSection('complex', this)">Complex Strokes (5)</button>
         </div>
+        <!-- Row 2: Break & Post-Break Content -->
         <div class="menu-row">
-            <button class="menu-btn" onclick="showSection('break', this)">6. Break & Attendance</button>
-            <button class="menu-btn" onclick="showSection('rules', this)">7. Stroke Order Rules</button>
-            <button class="menu-btn" onclick="showSection('structures', this)">8. Character Structures</button>
-            <button class="menu-btn" onclick="showSection('exercises', this)">9. In-Class Exercises</button>
-            <button class="menu-btn" onclick="showSection('wrapup', this)">10. Wrap-up</button>
+            <button class="menu-btn" onclick="showSection('break', this)">Break & Attendance</button>
+            <button class="menu-btn" onclick="showSection('rules', this)">Stroke Order Rules</button>
+            <button class="menu-btn" onclick="showSection('structures', this)">Character Structures</button>
+            <button class="menu-btn" onclick="showSection('exercises', this)">Exercises</button>
+            <button class="menu-btn" onclick="showSection('wrapup', this)">Wrap-up</button>
         </div>
     </div>
-
-    <!-- SVG Red Arrow Marker Definition -->
-    <svg style="display:none;">
-        <defs>
-            <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
-            </marker>
-        </defs>
-    </svg>
 
     <!-- Main Content Container -->
     <div class="content pinyin-font">
@@ -235,42 +245,48 @@
             </h1>
             
             <ul style="font-size: 1.25rem; line-height: 2;">
-                <li>Chinese characters (Hànzì) are the written symbols of the Chinese language.</li>
-                <li>They are composed of basic strokes and written in a specific order.</li>
-                <li>Their structure evolved from ancient pictographs or symbols (e.g. ancient water symbol &rarr; <span class="kw-pinyin">shuǐ</span>).</li>
-                <li>All characters fit into equal-sized square grids regardless of stroke count, maintaining a well-balanced structure.</li>
+                <li>Chinese characters (Hànzì) are the written symbols of the Chinese language.[cite: 1]</li>
+                <li>They are composed of basic strokes and written in a specific order.[cite: 1]</li>
+                <li>Their structure evolved from ancient pictographs or symbols (e.g. ancient water symbol &rarr; <span class="kw-pinyin">shuǐ</span>).[cite: 1]</li>
+                <li>All characters fit into equal-sized square grids regardless of stroke count, maintaining a well-balanced structure.[cite: 1]</li>
             </ul>
 
-            <div style="margin-top: 35px; background: #fff5f5; border: 2px solid #fecaca; border-radius: 12px; padding: 25px;" class="center">
-                <div style="font-size: 1.3rem; color: #991b1b; font-weight: bold; margin-bottom: 15px;">
-                    Wǒ shì lǎoshī, tā shì xuésheng.
+            <!-- Key Concept Card -->
+            <div style="background: #fff8f6; border-left: 6px solid var(--primary-rose); padding: 18px 22px; border-radius: 8px; margin: 20px 0; font-size: 1.15rem;">
+                <strong style="color: var(--primary-burgundy);"> Key Concept &mdash; The Equal Room Rule:</strong><br>
+                Think of the square Rice Grid as a room with a fixed size[cite: 1]. Whether a character has only 1 stroke (e.g. <span class="hanzi-text">一</span>) or 15 strokes (e.g. <span class="hanzi-text">餐</span>), it must be centered and balanced to fit comfortably in the room![cite: 1]
+            </div>
+
+            <div style="margin-top: 30px; background: var(--primary-soft); border: 2px solid #fecdd3; border-radius: 12px; padding: 25px;" class="center">
+                <div style="font-size: 1.3rem; color: var(--primary-burgundy); font-weight: bold; margin-bottom: 15px;">
+                    Wǒ shì lǎoshī, tā shì xuésheng.[cite: 1]
                 </div>
                 
-                <!-- Individual Rice Grid Box in Formal KaiTi -->
+                <!-- Individual Rice Grid Box in Formal KaiTi Font Stack -->
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px;" class="hanzi-text">
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">我</text></svg></div>
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">是</text></svg></div>
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">老</text></svg></div>
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">师</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">我</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">是</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">老</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">师</text></svg></div>
                     
                     <span style="font-size: 2.5rem; font-weight: bold; margin: 0 8px;">,</span>
 
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">他</text></svg></div>
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">是</text></svg></div>
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">学</text></svg></div>
-                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#171717">生</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">他</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">是</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">学</text></svg></div>
+                    <div class="mizige-box-lg"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="3"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.5" stroke-dasharray="4,4"/><text x="50" y="72" font-size="68" text-anchor="middle" fill="#1c1917">生</text></svg></div>
                 </div>
             </div>
         </div>
 
-        <!-- Section 2: Basic Strokes (With Red Directional Arrows & Clean Line Paths) -->
+        <!-- Section 2: Basic Strokes (No Red Arrows, Clean Vector Lines) -->
         <div id="basic" class="section">
             <h1>
                 <span>2. Basic Strokes of Chinese Characters</span>
                 <span class="page-badge">KLXHY pg 8, 10</span>
             </h1>
             
-            <p>Write each stroke in <strong>one single continuous stroke movement</strong>. Follow the red arrows for writing direction:</p>
+            <p>Write each stroke in <strong>one single continuous stroke movement</strong> without lifting your pen[cite: 2]:</p>
 
             <table>
                 <tr>
@@ -285,17 +301,16 @@
                     <td>
                         <div class="mizige-box">
                             <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 38 32 L 62 58" stroke="#171717" stroke-width="9" stroke-linecap="round"/>
-                                <path d="M 28 22 L 54 48" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 38 32 L 62 58" stroke="#1c1917" stroke-width="9" stroke-linecap="round"/>
                             </svg>
                         </div>
                     </td>
-                    <td>Small slanting stroke written from top-left to bottom-right.</td>
+                    <td>Small slanting stroke written from top-left to bottom-right.[cite: 2]</td>
                     <td class="hanzi-text" style="font-size:1.8em;">寸</td>
                 </tr>
                 <!-- héng -->
@@ -304,17 +319,16 @@
                     <td>
                         <div class="mizige-box">
                             <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 18 50 L 82 50" stroke="#171717" stroke-width="8" stroke-linecap="round"/>
-                                <path d="M 18 35 L 78 35" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 18 50 L 82 50" stroke="#1c1917" stroke-width="8" stroke-linecap="round"/>
                             </svg>
                         </div>
                     </td>
-                    <td>Horizontal stroke written strictly from left to right.</td>
+                    <td>Horizontal stroke written strictly from left to right.[cite: 2]</td>
                     <td class="hanzi-text" style="font-size:1.8em;">二</td>
                 </tr>
                 <!-- shù -->
@@ -323,17 +337,16 @@
                     <td>
                         <div class="mizige-box">
                             <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 50 18 L 50 82" stroke="#171717" stroke-width="8" stroke-linecap="round"/>
-                                <path d="M 35 18 L 35 78" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 50 18 L 50 82" stroke="#1c1917" stroke-width="8" stroke-linecap="round"/>
                             </svg>
                         </div>
                     </td>
-                    <td>Vertical line written straight from top to bottom.</td>
+                    <td>Vertical line written straight from top to bottom.[cite: 2]</td>
                     <td class="hanzi-text" style="font-size:1.8em;">卜</td>
                 </tr>
                 <!-- piě -->
@@ -342,17 +355,16 @@
                     <td>
                         <div class="mizige-box">
                             <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 75 22 Q 55 52 22 80" stroke="#171717" stroke-width="8" stroke-linecap="round" fill="none"/>
-                                <path d="M 78 30 Q 60 55 28 82" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 75 22 Q 55 52 22 80" stroke="#1c1917" stroke-width="8" stroke-linecap="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
-                    <td>Slanting stroke falling from top right to bottom left.</td>
+                    <td>Slanting stroke falling from top right to bottom left.[cite: 2]</td>
                     <td class="hanzi-text" style="font-size:1.8em;">人</td>
                 </tr>
                 <!-- nà -->
@@ -361,611 +373,54 @@
                     <td>
                         <div class="mizige-box">
                             <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 22 22 Q 48 52 78 80" stroke="#171717" stroke-width="8" stroke-linecap="round" fill="none"/>
-                                <path d="M 18 30 Q 42 55 75 82" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 22 22 Q 48 52 78 80" stroke="#1c1917" stroke-width="8" stroke-linecap="round" fill="none"/>
                             </svg>
                         </div>
                     </td>
-                    <td>Slanting stroke falling from top left to bottom right.</td>
+                    <td>Slanting stroke falling from top left to bottom right.[cite: 2]</td>
                     <td class="hanzi-text" style="font-size:1.8em;">大</td>
                 </tr>
-                <!-- tí (Short & Rising Up-Right) -->
+                <!-- tí -->
                 <tr>
                     <td><span class="kw-pinyin">tí</span></td>
                     <td>
                         <div class="mizige-box">
                             <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecaca" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 28 72 L 72 38" stroke="#171717" stroke-width="8" stroke-linecap="round"/>
-                                <path d="M 22 78 L 68 42" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="0" x2="100" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="100" y1="0" x2="0" y2="100" stroke="#fecdd3" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 28 72 L 72 38" stroke="#1c1917" stroke-width="8" stroke-linecap="round"/>
                             </svg>
                         </div>
                     </td>
-                    <td>An upward short stroke written from bottom left to top right.</td>
+                    <td>An upward short stroke written from bottom left to top right.[cite: 2]</td>
                     <td class="hanzi-text" style="font-size:1.8em;">刁</td>
                 </tr>
             </table>
-        </div>
 
-        <!-- Section 3: Strokes with Turns -->
-        <div id="turns" class="section">
-            <h1>
-                <span>3. Strokes with Turns (zhé)</span>
-                <span class="page-badge">KLXHY pg 8, 10</span>
-            </h1>
-            
-            <p>A turn <strong>(<span class="kw-pinyin">zhé</span>)</strong> is a continuous change of direction without lifting your pen.</p>
-
-            <table>
-                <tr>
-                    <th style="width: 22%;">Stroke Name</th>
-                    <th style="width: 22%;">Rice Grid Symbol</th>
-                    <th style="width: 38%;">Key Technique & Visual Hack</th>
-                    <th style="width: 18%;">Example</th>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">héng piě</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 30 L 75 30 Q 52 55 25 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Horizontal start, then curve smoothly into a left-falling curve.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">又</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">piě diǎn</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 65 20 L 25 62 L 75 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Slant down-left, then turn with a <strong>wide open angle</strong> to bottom-right.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">女</td>
-                </tr>
-                <!-- shù tí with shortened tí -->
-                <tr>
-                    <td><span class="kw-pinyin">shù tí</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 38 20 L 38 78 L 72 48" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Straight vertical down, then a short lift up towards top right.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">以</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">héng zhé</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 30 L 75 30 L 75 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Write like the number <strong>"7" with a sharp 90-degree corner</strong>.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">亡</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">shù zhé</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 30 20 L 30 75 L 80 75" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Write like the capital letter <strong>"L" with a sharp 90-degree corner</strong>.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">云</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">piě zhé</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 70 20 L 25 65 L 75 65" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Write like a <strong>slanted "V" (V senget)</strong> turning horizontal right.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">车</td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Section 4: Hook Strokes -->
-        <div id="hooks" class="section">
-            <h1>
-                <span>4. Strokes with Hooks (gōu)</span>
-                <span class="page-badge">KLXHY pg 8, 10</span>
-            </h1>
-            
-            <p>A hook <strong>(<span class="kw-pinyin">gōu</span>)</strong> is a short, sharp flick of the pen at the end of a stroke.</p>
-
-            <table>
-                <tr>
-                    <th style="width: 22%;">Stroke Name</th>
-                    <th style="width: 22%;">Rice Grid Symbol</th>
-                    <th style="width: 38%;">Key Technique & Visual Hack</th>
-                    <th style="width: 18%;">Example</th>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">héng gōu</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 35 L 75 35 L 58 55" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Horizontal line with a short, sharp flick down-left.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">买</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">shù gōu</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 50 18 L 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Keep vertical line straight. <strong>Do NOT curve like English "j/g"</strong>!</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">小</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">xié gōu</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 35 20 Q 55 52 75 80 L 75 58" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>"xié" = senget (slanted). Slant down-right, hook points to 12 o'clock!</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">戈</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">wò gōu</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 42 Q 45 78 72 68 L 60 50" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>"wò" = lie down. Draw a <strong>lay-down bracket</strong>, hook points inward.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">心</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">wān gōu</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 50 20 Q 70 52 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>"wān" = curved. Write like a <strong>close/right bracket ")"</strong> before hooking up.</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">了</td>
-                </tr>
-                <tr>
-                    <td><span class="kw-pinyin">shù wān gōu</span></td>
-                    <td>
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 35 20 L 35 70 Q 35 80 50 80 L 78 80 L 78 60" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                    </td>
-                    <td>Down, smooth curve right, and flick up. Make the bottom curve smooth!</td>
-                    <td class="hanzi-text" style="font-size:1.8em;">七</td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Section 5: Complex Strokes & Spot Differences -->
-        <div id="complex" class="section">
-            <h1>
-                <span>5. Complex Strokes & Confusing Pairs</span>
-                <span class="page-badge">KLXHY pg 8, 10</span>
-            </h1>
-            
-            <p>These complex strokes combine turns and hooks:</p>
-
-            <div class="rule-grid">
-                <!-- héng zhé gōu -->
-                <div class="grid-card">
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 30 L 75 30 L 75 80 L 55 65" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <strong><span class="kw-pinyin">héng zhé gōu</span></strong>
-                            <div style="font-size: 1.1rem; color: #555;">Stroke in: 刀 (dāo)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- héng zhé tí (Speech radical style) -->
-                <div class="grid-card">
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 25 32 L 68 32 L 48 68 L 78 40" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <strong><span class="kw-pinyin">héng zhé tí</span></strong>
-                            <div style="font-size: 1.1rem; color: #555;">Radical in: 讠 (计 jì)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- héng xié gōu -->
-                <div class="grid-card">
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 20 25 L 50 25 Q 65 55 80 78 L 80 58" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <strong><span class="kw-pinyin">héng xié gōu</span></strong>
-                            <div style="font-size: 1.1rem; color: #555;">Stroke in: 飞 (fēi)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- héng zhé wān gōu (乙 style) -->
-                <div class="grid-card">
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 22 28 L 65 28 L 40 52 Q 52 78 78 78 L 78 60" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <strong><span class="kw-pinyin">héng zhé wān gōu</span></strong>
-                            <div style="font-size: 1.1rem; color: #555;">Character: 乙 / 九</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- shù zhé zhé gōu -->
-                <div class="grid-card" style="grid-column: span 2;">
-                    <div style="display:flex; align-items:center; gap:15px;">
-                        <div class="mizige-box">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3,3"/>
-                                <path d="M 30 20 L 30 45 L 70 45 L 70 80 L 52 66" stroke="#dc2626" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <strong><span class="kw-pinyin">shù zhé zhé gōu</span></strong>
-                            <div style="font-size: 1.1rem; color: #555;">Stroke in: 马 (mǎ) &mdash; All right angle turns!</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Spot the Differences: Confusing Strokes with Individual Rice Grids -->
-            <div class="warning-box" style="margin-top: 35px;">
-                <h3 style="margin-top:0; color:#b45309;">Spot the Differences: Confusing Strokes!</h3>
-                <p>Compare similar strokes side-by-side in Rice Grids:</p>
-                
-                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
-                    
-                    <!-- Group 1 -->
-                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
-                        <strong>1. Hooks:</strong>
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 18 L 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">shù gōu</span>
-                        </div>
-                        vs.
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 35 20 Q 55 52 75 80 L 75 58" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">xié gōu</span>
-                        </div>
-                        vs.
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 20 Q 70 52 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">wān gōu</span>
-                        </div>
-                    </div>
-
-                    <!-- Group 2 -->
-                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
-                        <strong>2. Angles:</strong>
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 70 20 L 25 65 L 75 65" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">piě zhé</span>
-                        </div>
-                        vs.
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 65 20 L 25 62 L 75 80" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">piě diǎn</span>
-                        </div>
-                    </div>
-
-                    <!-- Group 3 -->
-                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
-                        <strong>3. End direction:</strong>
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 18 L 50 82 L 32 66" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">shù gōu (hooks left)</span>
-                        </div>
-                        vs.
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 38 20 L 38 78 L 72 48" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">shù tí (lifts right)</span>
-                        </div>
-                    </div>
-
-                    <!-- Group 4 -->
-                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
-                        <strong>4. Turn vs Lift:</strong>
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 25 32 L 68 32 L 48 68 L 78 40" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">héng zhé tí</span>
-                        </div>
-                        vs.
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 30 L 75 30 L 75 80 L 55 65" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">héng zhé gōu</span>
-                        </div>
-                    </div>
-
-                    <!-- Group 5 -->
-                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
-                        <strong>5. Straight vs Curve:</strong>
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 25 L 50 25 Q 65 55 80 78 L 80 58" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">héng xié gōu</span>
-                        </div>
-                        vs.
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,3"/><path d="M 22 28 L 65 28 L 40 52 Q 52 78 78 78 L 78 60" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-                            <span class="kw-pinyin" style="font-size:0.9em;">héng zhé wān gōu</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 6: Break & Attendance -->
-        <div id="break" class="section">
-            <div class="hero-banner" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #bbf7d0;">
-                <h1 style="color: #15803d;"> Mid-Class Break</h1>
-                <p style="color: #166534;">Time to rest your hands and eyes!</p>
-            </div>
-
-            <div style="max-width: 650px; margin: 30px auto; background: #fafafa; border: 2px solid #e5e5e5; border-radius: 12px; padding: 30px;">
-                <h3 style="margin-top: 0; color: #dc2626;"> Mid-Class Break Rules:</h3>
-                <ul style="line-height: 2; font-size: 1.25rem; margin-bottom: 0;">
-                    <li> Grab a glass of water and stretch your wrists/hands!</li>
-                    <li> Look away from the screen to give your eyes a short rest.</li>
+            <!-- Practical Action Cue Box -->
+            <div style="background: #fff8f6; border-left: 6px solid var(--primary-crimson); padding: 18px 22px; border-radius: 8px; margin-top: 25px; font-size: 1.15rem;">
+                <strong style="color: var(--primary-burgundy);"> Writing Tip &mdash; Hand Action Cues:</strong>
+                <ul style="margin: 8px 0 0 0; padding-left: 20px; line-height: 1.8;">
+                    <li><span class="kw-pinyin">tí</span> is written like <strong>striking a match</strong> &mdash; flick quickly up to the right!</li>
+                    <li><span class="kw-pinyin">piě</span> and <span class="kw-pinyin">nà</span> are like <strong>a person standing with arms spread wide</strong> for balance!</li>
                 </ul>
             </div>
-        </div>
 
-        <!-- Section 7: Stroke Order Rules -->
-        <div id="rules" class="section">
-            <h1>
-                <span>7. General Rules for Writing Characters</span>
-                <span class="page-badge">KLXHY pg 9</span>
-            </h1>
-            <p>Characters must be written according to fixed stroke order rules:</p>
-
-            <div class="rule-card">
-                <h3><span style="color:#0284c7;">Rules for Crossing Strokes</span></h3>
-                <div class="rule-grid">
-                    <div class="grid-card">
-                        <strong>1. <span class="kw-pinyin">héng</span> before <span class="kw-pinyin">shù</span></strong>
-                        <p style="margin:4px 0 0;">Horizontal before vertical.</p>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">十 (shí)、木 (mù)</div>
-                    </div>
-                    <div class="grid-card">
-                        <strong>2. <span class="kw-pinyin">piě</span> before <span class="kw-pinyin">nà</span></strong>
-                        <p style="margin:4px 0 0;">Left-falling before right-falling.</p>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">人 (rén)、大 (dà)</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule-card">
-                <h3><span style="color:#0284c7;">Rules for Writing Order</span></h3>
-                <div class="rule-grid">
-                    <div class="grid-card">
-                        <strong>3. From top to bottom</strong>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">三 (sān)、劳 (láo)</div>
-                    </div>
-                    <div class="grid-card">
-                        <strong>4. From left to right</strong>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">川 (chuān)、什 (shén)</div>
-                    </div>
-                    <div class="grid-card">
-                        <strong>5. From outside to inside</strong>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">月 (yuè)、问 (wèn)</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="rule-card">
-                <h3><span style="color:#0284c7;">Rules for Frames & Symmetry</span></h3>
-                <div class="rule-grid">
-                    <div class="grid-card">
-                        <strong>6. Fill inside before sealing frame</strong>
-                        <p style="margin:4px 0 0; font-size:0.95em;">Put items inside before closing door!</p>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">四 (sì)、国 (guó)</div>
-                    </div>
-                    <div class="grid-card">
-                        <strong>7. Middle precedes two sides</strong>
-                        <p style="margin:4px 0 0; font-size:0.95em;">Symmetrical characters center first.</p>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">小 (xiǎo)、水 (shuǐ)</div>
-                    </div>
-                    <div class="grid-card">
-                        <strong>8. Skewering vertical stroke last</strong>
-                        <p style="margin:4px 0 0; font-size:0.95em;">Vertical passing middle comes last.</p>
-                        <div style="font-size:1.8em; color:#dc2626;" class="hanzi-text">手 (shǒu)、事 (shì)</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 8: Character Structures -->
-        <div id="structures" class="section">
-            <h1>
-                <span>8. Character Structure Types</span>
-                <span class="page-badge">KLXHY pg 9</span>
-            </h1>
-            
-            <p>Characters are divided into <strong>Single-Component</strong> (1 part, e.g. <span class="hanzi-text">马, 月, 木, 人</span>) and <strong>Multi-Component</strong> (2+ parts).</p>
-
-            <table>
-                <tr>
-                    <th style="width: 25%;">Structure Name</th>
-                    <th style="width: 35%;">Visual Concept Layout</th>
-                    <th style="width: 40%;">Examples</th>
-                </tr>
-                <tr>
-                    <td><strong>Left-Right Structure</strong></td>
-                    <td class="center">
-                        <svg width="180" height="70" viewBox="0 0 180 70">
-                            <rect x="5" y="5" width="80" height="60" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="45" y="42" font-size="16" font-weight="bold" fill="#991b1b" text-anchor="middle">Left</text>
-                            <rect x="95" y="5" width="80" height="60" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="135" y="42" font-size="16" font-weight="bold" fill="#991b1b" text-anchor="middle">Right</text>
-                        </svg>
-                    </td>
-                    <td class="hanzi-text"><span style="font-size:1.8em;">好</span> (hǎo)、<span style="font-size:1.8em;">你</span> (nǐ)、<span style="font-size:1.8em;">谢</span> (xiè)</td>
-                </tr>
-                <tr>
-                    <td><strong>Top-Bottom Structure</strong></td>
-                    <td class="center">
-                        <svg width="180" height="85" viewBox="0 0 180 85">
-                            <rect x="15" y="5" width="150" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="90" y="28" font-size="16" font-weight="bold" fill="#991b1b" text-anchor="middle">Top Component</text>
-                            <rect x="15" y="45" width="150" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="90" y="68" font-size="16" font-weight="bold" fill="#991b1b" text-anchor="middle">Bottom Component</text>
-                        </svg>
-                    </td>
-                    <td class="hanzi-text"><span style="font-size:1.8em;">字</span> (zì)、<span style="font-size:1.8em;">早</span> (zǎo)、<span style="font-size:1.8em;">点</span> (diǎn)</td>
-                </tr>
-                <tr>
-                    <td><strong>Triangle Structure</strong></td>
-                    <td class="center">
-                        <svg width="180" height="85" viewBox="0 0 180 85">
-                            <rect x="52" y="4" width="76" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="90" y="26" font-size="14" font-weight="bold" fill="#991b1b" text-anchor="middle">Top</text>
-                            <rect x="10" y="44" width="76" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="48" y="66" font-size="14" font-weight="bold" fill="#991b1b" text-anchor="middle">Btm-Left</text>
-                            <rect x="94" y="44" width="76" height="34" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="132" y="66" font-size="14" font-weight="bold" fill="#991b1b" text-anchor="middle">Btm-Right</text>
-                        </svg>
-                    </td>
-                    <td class="hanzi-text"><span style="font-size:1.8em;">森</span> (sēn)、<span style="font-size:1.8em;">品</span> (pǐn)</td>
-                </tr>
-                <tr>
-                    <td><strong>Enclosed Structure</strong> (Semi / Fully)</td>
-                    <td class="center">
-                        <svg width="180" height="75" viewBox="0 0 180 75">
-                            <rect x="15" y="5" width="150" height="65" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="3" stroke-dasharray="6,3"/>
-                            <rect x="35" y="18" width="110" height="38" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
-                            <text x="90" y="42" font-size="15" font-weight="bold" fill="#991b1b" text-anchor="middle">Inside Component</text>
-                        </svg>
-                    </td>
-                    <td class="hanzi-text">
-                        Semi: <span style="font-size:1.6em;">店、句、进、网、区</span><br>
-                        Fully: <span style="font-size:1.6em;">国、四、凶</span>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Section 9: Exercises (Complete Textbook Pg 10-13) -->
-        <div id="exercises" class="section">
-            <h1>
-                <span>9. Complete In-Class Exercises</span>
-                <span class="page-badge">KLXHY pg 10 - 13</span>
-            </h1>
-            
-            <!-- Exercise A1: 23 Basic Strokes Recognition -->
-            <div class="exercise-card">
+            <!-- MOVED FROM EX A.1: Immediate Practice Q1 - Q6 -->
+            <div class="exercise-card" style="margin-top: 35px;">
                 <h3>
-                    <span>Ex A.1: 23 Basic Strokes Practice (Page 10)</span>
+                    <span>Immediate Practice: Identify 6 Basic Strokes</span>
                     <span class="page-badge">KLXHY pg 10</span>
                 </h3>
-                <p>Identify the names for all 23 strokes from the textbook:</p>
+                <p>Identify the names for these 6 basic strokes right after learning them:</p>
 
                 <div class="rule-grid">
                     <div class="interactive-q-item">
@@ -992,38 +447,198 @@
                         <div class="q-header"><span class="q-prompt">6. ㇀</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-6')">Answer</button></div>
                         <div id="ex-a1-6" class="answer-box">tí</div>
                     </div>
-                    <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">7. 乛</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-7')">Answer</button></div>
-                        <div id="ex-a1-7" class="answer-box">héng gōu</div>
-                    </div>
-                    <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">8. 亅</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-8')">Answer</button></div>
-                        <div id="ex-a1-8" class="answer-box">shù gōu</div>
-                    </div>
-                    <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">9. ㇂</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-9')">Answer</button></div>
-                        <div id="ex-a1-9" class="answer-box">xié gōu</div>
-                    </div>
-                    <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">10. ㇁</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-10')">Answer</button></div>
-                        <div id="ex-a1-10" class="answer-box">wān gōu</div>
-                    </div>
-                    <!-- Fixed wò gōu symbol -->
-                    <div class="interactive-q-item">
-                        <div class="q-header">
-                            <span class="q-prompt" style="display:flex; align-items:center; gap:8px;">
-                                11. 
-                                <span class="mizige-box" style="width:40px; height:40px;">
-                                    <svg viewBox="0 0 100 100">
-                                        <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#dc2626" stroke-width="2"/>
-                                        <path d="M 20 42 Q 45 78 72 68 L 60 50" stroke="#171717" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                                    </svg>
-                                </span>
-                            </span> 
-                            <button class="reveal-btn" onclick="toggleAnswer('ex-a1-11')">Answer</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: Golden Concept "What You Read Is What You Write" -->
+        <div id="concept" class="section">
+            <h1>
+                <span>Core Concept: "What You Read Is What You Write!"</span>
+            </h1>
+
+            <div class="concept-box">
+                <h3 style="margin-top: 0; color: #15803d; font-size: 1.6rem;"> The Chinese Stroke Naming Secret</h3>
+                <p style="font-size: 1.25rem; margin-bottom: 0;">
+                    Never feel overwhelmed by long stroke names like <span class="kw-pinyin">héng zhé gōu</span> or <span class="kw-pinyin">shù tí</span>! <br>
+                    Chinese stroke names are NOT random terms &mdash; they are literally <strong>step-by-step writing instructions</strong>!
+                </p>
+            </div>
+
+            <h2>How to Break Down ANY Complex Stroke Name:</h2>
+            <p>Every complex stroke is built by combining basic stroke names with 2 action modifiers:</p>
+            
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; margin: 25px 0;">
+                <div style="flex: 1 1 280px; background: var(--primary-soft); border: 2px solid #fecdd3; border-radius: 10px; padding: 20px;">
+                    <strong style="color: var(--primary-burgundy); font-size: 1.2rem;">Action Modifier #1: zhé</strong>
+                    <p style="margin: 8px 0 0; font-size: 1.1rem;">
+                        <strong>zhé</strong> means <strong>"TURN"</strong> or <strong>"CHANGE DIRECTION"</strong>![cite: 2]<br>
+                        Whenever you see "zhé", bend your pen direction without lifting it.[cite: 2]
+                    </p>
+                </div>
+                <div style="flex: 1 1 280px; background: var(--primary-soft); border: 2px solid #fecdd3; border-radius: 10px; padding: 20px;">
+                    <strong style="color: var(--primary-burgundy); font-size: 1.2rem;">Action Modifier #2: gōu</strong>
+                    <p style="margin: 8px 0 0; font-size: 1.1rem;">
+                        <strong>gōu</strong> means <strong>"HOOK"</strong>![cite: 2]<br>
+                        Whenever a stroke name ends with "gōu", flick a short sharp hook at the end.[cite: 2]
+                    </p>
+                </div>
+            </div>
+
+            <h3> Formula Breakdown Examples:</h3>
+            <table>
+                <tr>
+                    <th>Stroke Name</th>
+                    <th>Formula Breakdown</th>
+                    <th>What You Do</th>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">héng zhé</span></td>
+                    <td><strong>héng</strong> + <strong>zhé</strong></td>
+                    <td>Draw horizontal line &rarr; <strong>TURN DOWN</strong>!</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">shù tí</span></td>
+                    <td><strong>shù</strong> + <strong>tí</strong></td>
+                    <td>Draw vertical line &rarr; <strong>LIFT UP-RIGHT</strong>!</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">héng gōu</span></td>
+                    <td><strong>héng</strong> + <strong>gōu</strong></td>
+                    <td>Draw horizontal line &rarr; <strong>FLICK A HOOK</strong>!</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">shù zhé zhé gōu</span></td>
+                    <td><strong>shù</strong> + <strong>zhé</strong> + <strong>zhé</strong> + <strong>gōu</strong></td>
+                    <td>Vertical &rarr; <strong>Turn</strong> &rarr; <strong>Turn</strong> &rarr; <strong>Hook</strong>! (e.g. in <span class="hanzi-text">马</span>)</td>
+                </tr>
+            </table>
+
+            <div style="background: #fff8f6; border-left: 6px solid var(--primary-rose); padding: 18px 22px; border-radius: 8px; margin-top: 25px; font-size: 1.15rem;">
+                <strong style="color: var(--primary-burgundy);"> Pro Tip for Practice:</strong><br>
+                Before writing any character, say the stroke names aloud and chant the actions together: <em>"Héng... TURN! Shù... HOOK!"</em> Reading the names aloud will directly guide your pen!
+            </div>
+        </div>
+
+        <!-- Section 4: Strokes with Turns -->
+        <div id="turns" class="section">
+            <h1>
+                <span>3. Strokes with Turns (zhé)</span>
+                <span class="page-badge">KLXHY pg 8, 10</span>
+            </h1>
+            
+            <p style="font-size: 1.25rem;">
+                A turn (<span class="kw-pinyin">zhé</span>) is a <strong><span style="color:var(--primary-crimson);">continuous change of direction</span></strong> <strong><span style="color:var(--primary-burgundy);">without lifting your pen</span></strong>.[cite: 2]
+            </p>
+
+            <table>
+                <tr>
+                    <th style="width: 22%;">Stroke Name</th>
+                    <th style="width: 22%;">Rice Grid Symbol</th>
+                    <th style="width: 38%;">Key Technique & Visual Hack</th>
+                    <th style="width: 18%;">Example</th>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">héng piě</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 20 30 L 75 30 Q 52 55 25 80" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
                         </div>
-                        <div id="ex-a1-11" class="answer-box">wò gōu (卧钩)</div>
-                    </div>
+                    </td>
+                    <td>Horizontal start, then curve smoothly into a left-falling curve.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">又</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">piě diǎn</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 65 20 L 25 62 L 75 80" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Slant down-left, then turn with a <strong>wide open angle</strong> to bottom-right.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">女</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">shù tí</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 38 20 L 38 78 L 72 48" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Straight vertical down, then a short lift up towards top right.</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">以</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">héng zhé</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 20 30 L 75 30 L 75 80" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Write like the number <strong>"7" with a sharp 90-degree corner</strong>.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">亡</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">shù zhé</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 30 20 L 30 75 L 80 75" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Write like the capital letter <strong>"L" with a sharp 90-degree corner</strong>.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">云</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">piě zhé</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 70 20 L 25 65 L 75 65" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Write like a <strong>slanted "V" (V senget)</strong> turning horizontal right.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">车</td>
+                </tr>
+            </table>
+
+            <!-- MOVED FROM EX A.1: Immediate Practice Q12 - Q17 -->
+            <div class="exercise-card" style="margin-top: 35px;">
+                <h3>
+                    <span>Immediate Practice: Identify 6 Turn Strokes</span>
+                    <span class="page-badge">KLXHY pg 10</span>
+                </h3>
+                <p>Identify the names for these 6 turn strokes right after learning them:</p>
+
+                <div class="rule-grid">
                     <div class="interactive-q-item">
                         <div class="q-header"><span class="q-prompt">12. 𠃍</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-12')">Answer</button></div>
                         <div id="ex-a1-12" class="answer-box">héng zhé</div>
@@ -1048,8 +663,269 @@
                         <div class="q-header"><span class="q-prompt">17. 𠄌</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-17')">Answer</button></div>
                         <div id="ex-a1-17" class="answer-box">shù tí</div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Hook Strokes -->
+        <div id="hooks" class="section">
+            <h1>
+                <span>4. Strokes with Hooks (gōu)</span>
+                <span class="page-badge">KLXHY pg 8, 10</span>
+            </h1>
+            
+            <p style="font-size: 1.25rem;">
+                A hook (<span class="kw-pinyin">gōu</span>) is a <strong><span style="color:var(--primary-crimson);">short, sharp flick of the pen</span></strong> at the <strong><span style="color:var(--primary-burgundy);">end of a stroke</span></strong>.[cite: 2]
+            </p>
+
+            <table>
+                <tr>
+                    <th style="width: 22%;">Stroke Name</th>
+                    <th style="width: 22%;">Rice Grid Symbol</th>
+                    <th style="width: 38%;">Key Technique & Visual Hack</th>
+                    <th style="width: 18%;">Example</th>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">héng gōu</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 20 35 L 75 35 L 58 55" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Horizontal line with a short, sharp flick down-left.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">买</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">shù gōu</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 50 18 L 50 82 L 32 66" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Keep vertical line straight. <strong>Do NOT curve like English "j/g"</strong>![cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">小</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">xié gōu</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 35 20 Q 55 52 75 80 L 75 58" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>"xié" = senget (slanted). Slant down-right, hook points to 12 o'clock![cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">戈</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">wò gōu</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 20 42 Q 45 78 72 68 L 60 50" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>"wò" = lie down. Draw a <strong>lay-down bracket</strong>, hook points inward.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">心</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">wān gōu</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 50 20 Q 70 52 50 82 L 32 66" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>"wān" = curved. Write like a <strong>close/right bracket ")"</strong> before hooking up.[cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">了</td>
+                </tr>
+                <tr>
+                    <td><span class="kw-pinyin">shù wān gōu</span></td>
+                    <td>
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 35 20 L 35 70 Q 35 80 50 80 L 78 80 L 78 60" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                    </td>
+                    <td>Down, smooth curve right, and flick up. Make the bottom curve smooth![cite: 2]</td>
+                    <td class="hanzi-text" style="font-size:1.8em;">七</td>
+                </tr>
+            </table>
+
+            <!-- MOVED FROM EX A.1: Immediate Practice Q7 - Q11, Q22 -->
+            <div class="exercise-card" style="margin-top: 35px;">
+                <h3>
+                    <span>Immediate Practice: Identify 6 Hook Strokes</span>
+                    <span class="page-badge">KLXHY pg 10</span>
+                </h3>
+                <p>Identify the names for these 6 hook strokes right after learning them:</p>
+
+                <div class="rule-grid">
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">18. 讠(转折笔)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-18')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">7. 乛</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-7')">Answer</button></div>
+                        <div id="ex-a1-7" class="answer-box">héng gōu</div>
+                    </div>
+                    <div class="interactive-q-item">
+                        <div class="q-header"><span class="q-prompt">8. 亅</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-8')">Answer</button></div>
+                        <div id="ex-a1-8" class="answer-box">shù gōu</div>
+                    </div>
+                    <div class="interactive-q-item">
+                        <div class="q-header"><span class="q-prompt">9. ㇂</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-9')">Answer</button></div>
+                        <div id="ex-a1-9" class="answer-box">xié gōu</div>
+                    </div>
+                    <div class="interactive-q-item">
+                        <div class="q-header"><span class="q-prompt">10. ㇁</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-10')">Answer</button></div>
+                        <div id="ex-a1-10" class="answer-box">wān gōu</div>
+                    </div>
+                    <div class="interactive-q-item">
+                        <div class="q-header"><span class="q-prompt">11. ㇼ</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-11')">Answer</button></div>
+                        <div id="ex-a1-11" class="answer-box">wò gōu</div>
+                    </div>
+                    <div class="interactive-q-item">
+                        <div class="q-header"><span class="q-prompt">22. 乚</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-22')">Answer</button></div>
+                        <div id="ex-a1-22" class="answer-box">shù wān gōu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Complex Strokes & Spot Differences -->
+        <div id="complex" class="section">
+            <h1>
+                <span>5. Complex Strokes & Confusing Pairs</span>
+                <span class="page-badge">KLXHY pg 8, 10</span>
+            </h1>
+            
+            <p>These complex strokes combine turns and hooks:</p>
+
+            <div class="rule-grid">
+                <!-- héng zhé gōu -->
+                <div class="grid-card">
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 20 30 L 75 30 L 75 80 L 55 65" stroke="#be123c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong><span class="kw-pinyin">héng zhé gōu</span></strong>
+                            <div style="font-size: 1.1rem; color: #555;">Stroke in: <span class="hanzi-text">刀</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pure héng zhé tí (speech radical stroke without dot) -->
+                <div class="grid-card">
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 25 35 L 68 35 L 42 70 L 78 40" stroke="#be123c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong><span class="kw-pinyin">héng zhé tí</span></strong>
+                            <div style="font-size: 1.1rem; color: #555;">Pure stroke from <span class="hanzi-text">讠</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- héng xié gōu -->
+                <div class="grid-card">
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 20 25 L 50 25 Q 65 55 80 78 L 80 58" stroke="#be123c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong><span class="kw-pinyin">héng xié gōu</span></strong>
+                            <div style="font-size: 1.1rem; color: #555;">Stroke in: <span class="hanzi-text">飞</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pure héng zhé wān gōu (乙) -->
+                <div class="grid-card">
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 22 28 L 65 28 L 38 52 Q 52 78 78 78 L 78 60" stroke="#be123c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong><span class="kw-pinyin">héng zhé wān gōu</span></strong>
+                            <div style="font-size: 1.1rem; color: #555;">Pure character stroke: <span class="hanzi-text">乙</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- shù zhé zhé gōu -->
+                <div class="grid-card" style="grid-column: span 2;">
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <div class="mizige-box">
+                            <svg viewBox="0 0 100 100">
+                                <rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2.5"/>
+                                <line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1.2" stroke-dasharray="3,3"/>
+                                <path d="M 30 20 L 30 45 L 70 45 L 70 80 L 52 66" stroke="#be123c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong><span class="kw-pinyin">shù zhé zhé gōu</span></strong>
+                            <div style="font-size: 1.1rem; color: #555;">Stroke in: <span class="hanzi-text">马</span> &mdash; All right angle turns!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOVED FROM EX A.1: Immediate Practice Q18-Q21, Q23 -->
+            <div class="exercise-card" style="margin-top: 35px;">
+                <h3>
+                    <span>Immediate Practice: Identify 5 Complex Strokes</span>
+                    <span class="page-badge">KLXHY pg 10</span>
+                </h3>
+                <p>Identify the names for these 5 complex strokes right after learning them:</p>
+
+                <div class="rule-grid">
+                    <div class="interactive-q-item">
+                        <div class="q-header"><span class="q-prompt">18. ㇊</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-18')">Answer</button></div>
                         <div id="ex-a1-18" class="answer-box">héng zhé tí</div>
                     </div>
                     <div class="interactive-q-item">
@@ -1065,68 +941,323 @@
                         <div id="ex-a1-21" class="answer-box">héng xié gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">22. 乚</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-22')">Answer</button></div>
-                        <div id="ex-a1-22" class="answer-box">shù wān gōu</div>
-                    </div>
-                    <div class="interactive-q-item">
                         <div class="q-header"><span class="q-prompt">23. 乙</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-23')">Answer</button></div>
                         <div id="ex-a1-23" class="answer-box">héng zhé wān gōu</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Exercise A2: Stroke Table Fill-in (Numbered 1-10) -->
+            <!-- SWAPPED ORDER: Spot the Differences: Confusing Strokes NOW BELOW Immediate Practice -->
+            <div class="warning-box" style="margin-top: 35px;">
+                <h3 style="margin-top:0; color:#b45309;">Spot the Differences: Confusing Strokes!</h3>
+                <p>Compare similar strokes side-by-side in Rice Grids:[cite: 2]</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+                    
+                    <!-- Group 1 -->
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
+                        <strong>1. Hooks:</strong>
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 18 L 50 82 L 32 66" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">shù gōu</span>
+                        </div>
+                        vs.
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 35 20 Q 55 52 75 80 L 75 58" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">xié gōu</span>
+                        </div>
+                        vs.
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 20 Q 70 52 50 82 L 32 66" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">wān gōu</span>
+                        </div>
+                    </div>
+
+                    <!-- Group 2 -->
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
+                        <strong>2. Angles:</strong>
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 70 20 L 25 65 L 75 65" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">piě zhé</span>
+                        </div>
+                        vs.
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 65 20 L 25 62 L 75 80" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">piě diǎn</span>
+                        </div>
+                    </div>
+
+                    <!-- Group 3 -->
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
+                        <strong>3. End direction:</strong>
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 50 18 L 50 82 L 32 66" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">shù gōu (hooks left)</span>
+                        </div>
+                        vs.
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 38 20 L 38 78 L 72 48" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">shù tí (lifts right)</span>
+                        </div>
+                    </div>
+
+                    <!-- Group 4 -->
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
+                        <strong>4. Turn vs Lift:</strong>
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 25 35 L 68 35 L 42 70 L 78 40" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">héng zhé tí</span>
+                        </div>
+                        vs.
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 30 L 75 30 L 75 80 L 55 65" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">héng zhé gōu</span>
+                        </div>
+                    </div>
+
+                    <!-- Group 5 -->
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; padding: 10px 15px; border-radius: 8px;">
+                        <strong>5. Straight vs Curve:</strong>
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 20 25 L 50 25 Q 65 55 80 78 L 80 58" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">héng xié gōu</span>
+                        </div>
+                        vs.
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <div class="mizige-box"><svg viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" fill="#fff" stroke="#be123c" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><line x1="50" y1="0" x2="50" y2="100" stroke="#fda4af" stroke-width="1" stroke-dasharray="3,3"/><path d="M 22 28 L 65 28 L 38 52 Q 52 78 78 78 L 78 60" stroke="#1c1917" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+                            <span class="kw-pinyin" style="font-size:0.9em;">héng zhé wān gōu</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Break & Attendance -->
+        <div id="break" class="section">
+            <div class="hero-banner" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #bbf7d0;">
+                <h1 style="color: #15803d;"> Mid-Class Break</h1>
+                <p style="color: #166534;">Time to rest your hands and eyes!</p>
+            </div>
+
+            <div style="max-width: 650px; margin: 30px auto; background: #fafafa; border: 2px solid #e5e5e5; border-radius: 12px; padding: 30px;">
+                <h3 style="margin-top: 0; color: var(--primary-crimson);"> Mid-Class Break Rules:</h3>
+                <ul style="line-height: 2; font-size: 1.25rem; margin-bottom: 0;">
+                    <li> Grab a glass of water and stretch your wrists/hands!</li>
+                    <li> Look away from the screen to give your eyes a short rest.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 8: Stroke Order Rules -->
+        <div id="rules" class="section">
+            <h1>
+                <span>7. General Rules for Writing Characters</span>
+                <span class="page-badge">KLXHY pg 9</span>
+            </h1>
+            <p>Characters must be written according to fixed stroke order rules:[cite: 1]</p>
+
+            <!-- House Metaphor Card -->
+            <div style="background: #fff8f6; border-left: 6px solid var(--primary-rose); padding: 18px 22px; border-radius: 8px; margin-bottom: 25px; font-size: 1.15rem;">
+                <strong style="color: var(--primary-burgundy);"> Memory Hack &mdash; Building a House Analogy:</strong><br>
+                Think of stroke order like constructing a house: <br>
+                1. Build the roof first (&rarr; <strong>Top to bottom</strong>)<br>
+                2. Erect the main walls (&rarr; <strong>Left to right / Horizontal before vertical</strong>)<br>
+                3. Move furniture inside the room (&rarr; <strong>Inside component first</strong>)<br>
+                4. Finally, lock the front door! (&rarr; <strong>Seal enclosed frame last</strong>)
+            </div>
+
+            <div class="rule-card">
+                <h3><span style="color:var(--kw-rule);">Rules for Crossing Strokes</span></h3>
+                <div class="rule-grid">
+                    <div class="grid-card">
+                        <strong>1. <span class="kw-pinyin">héng</span> before <span class="kw-pinyin">shù</span></strong>
+                        <p style="margin:4px 0 0;">Horizontal before vertical.[cite: 1]</p>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">十、木</div>
+                    </div>
+                    <div class="grid-card">
+                        <strong>2. <span class="kw-pinyin">piě</span> before <span class="kw-pinyin">nà</span></strong>
+                        <p style="margin:4px 0 0;">Left-falling before right-falling.[cite: 1]</p>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">人、大</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <h3><span style="color:var(--kw-rule);">Rules for Writing Order</span></h3>
+                <div class="rule-grid">
+                    <div class="grid-card">
+                        <strong>3. From top to bottom</strong>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">三、劳</div>
+                    </div>
+                    <div class="grid-card">
+                        <strong>4. From left to right</strong>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">川、什</div>
+                    </div>
+                    <div class="grid-card">
+                        <strong>5. From outside to inside</strong>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">月、问</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rule-card">
+                <h3><span style="color:var(--kw-rule);">Rules for Frames & Symmetry</span></h3>
+                <div class="rule-grid">
+                    <div class="grid-card">
+                        <strong>6. Fill inside before sealing frame</strong>
+                        <p style="margin:4px 0 0; font-size:0.95em;">Put items inside before closing door![cite: 1]</p>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">四、国</div>
+                    </div>
+                    <div class="grid-card">
+                        <strong>7. Middle precedes two sides</strong>
+                        <p style="margin:4px 0 0; font-size:0.95em;">Symmetrical characters center first.[cite: 1]</p>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">小、水</div>
+                    </div>
+                    <div class="grid-card">
+                        <strong>8. Skewering vertical stroke last</strong>
+                        <p style="margin:4px 0 0; font-size:0.95em;">Vertical passing middle comes last.[cite: 1]</p>
+                        <div style="font-size:1.8em; color:var(--primary-crimson);" class="hanzi-text">手、事</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Character Structures -->
+        <div id="structures" class="section">
+            <h1>
+                <span>8. Character Structure Types</span>
+                <span class="page-badge">KLXHY pg 9</span>
+            </h1>
+            
+            <p>Characters are divided into <strong>Single-Component</strong> (1 part, e.g. <span class="hanzi-text">马, 月, 木, 人</span>) and <strong>Multi-Component</strong> (2+ parts).[cite: 1]</p>
+
+            <!-- Lego Metaphor -->
+            <div style="background: #fff8f6; border-left: 6px solid var(--primary-rose); padding: 18px 22px; border-radius: 8px; margin-bottom: 25px; font-size: 1.15rem;">
+                <strong style="color: var(--primary-burgundy);"> Structural Concept &mdash; Lego Bricks Analogy:</strong><br>
+                Multi-component characters are assembled like Lego blocks! Instead of memorizing 20 separate strokes, you only need to recognize 2 or 3 modular components fitted into a specific layout (Left-Right, Top-Bottom, Enclosed, Triangle).
+            </div>
+
+            <table>
+                <tr>
+                    <th style="width: 25%;">Structure Name</th>
+                    <th style="width: 35%;">Visual Concept Layout</th>
+                    <th style="width: 40%;">Examples</th>
+                </tr>
+                <tr>
+                    <td><strong>Left-Right Structure</strong></td>
+                    <td class="center">
+                        <svg width="180" height="70" viewBox="0 0 180 70">
+                            <rect x="5" y="5" width="80" height="60" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="45" y="42" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Left</text>
+                            <rect x="95" y="5" width="80" height="60" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="135" y="42" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Right</text>
+                        </svg>
+                    </td>
+                    <td class="hanzi-text"><span style="font-size:1.8em;">好</span>、<span style="font-size:1.8em;">你</span>、<span style="font-size:1.8em;">谢</span>[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Top-Bottom Structure</strong></td>
+                    <td class="center">
+                        <svg width="180" height="85" viewBox="0 0 180 85">
+                            <rect x="15" y="5" width="150" height="34" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="90" y="28" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Top Component</text>
+                            <rect x="15" y="45" width="150" height="34" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="90" y="68" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Bottom Component</text>
+                        </svg>
+                    </td>
+                    <td class="hanzi-text"><span style="font-size:1.8em;">字</span>、<span style="font-size:1.8em;">早</span>、<span style="font-size:1.8em;">点</span>[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Triangle Structure</strong></td>
+                    <td class="center">
+                        <svg width="180" height="85" viewBox="0 0 180 85">
+                            <rect x="52" y="4" width="76" height="34" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="90" y="26" font-size="14" font-weight="bold" fill="#881337" text-anchor="middle">Top</text>
+                            <rect x="10" y="44" width="76" height="34" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="48" y="66" font-size="14" font-weight="bold" fill="#881337" text-anchor="middle">Btm-Left</text>
+                            <rect x="94" y="44" width="76" height="34" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="132" y="66" font-size="14" font-weight="bold" fill="#881337" text-anchor="middle">Btm-Right</text>
+                        </svg>
+                    </td>
+                    <td class="hanzi-text"><span style="font-size:1.8em;">森</span>、<span style="font-size:1.8em;">品</span>[cite: 1, 3]</td>
+                </tr>
+                <tr>
+                    <td><strong>Enclosed Structure</strong> (Semi / Fully)</td>
+                    <td class="center">
+                        <svg width="180" height="75" viewBox="0 0 180 75">
+                            <rect x="15" y="5" width="150" height="65" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="3" stroke-dasharray="6,3"/>
+                            <rect x="35" y="18" width="110" height="38" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="90" y="42" font-size="15" font-weight="bold" fill="#881337" text-anchor="middle">Inside Component</text>
+                        </svg>
+                    </td>
+                    <td class="hanzi-text">
+                        Semi: <span style="font-size:1.6em;">店、句、进、网、区、凶</span>[cite: 1]<br>
+                        Fully: <span style="font-size:1.6em;">国、四</span>[cite: 1]
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Section 10: Exercises (Complete Textbook Pg 10-13) -->
+        <div id="exercises" class="section">
+            <h1>
+                <span>9. Complete Exercises</span>
+                <span class="page-badge">KLXHY pg 10 - 13</span>
+            </h1>
+
+            <!-- Exercise A2: Stroke Table Fill-in (Part 2 Corrected to Q6-Q10) -->
             <div class="exercise-card">
                 <h3>
                     <span>Ex A.2: Stroke Table Fill-in (Page 10)</span>
                     <span class="page-badge">KLXHY pg 10</span>
                 </h3>
                 
-                <p><strong>Part 1: Given Names &rarr; Write Stroke (Q1-Q5)</strong></p>
+                <p><strong>Part 1: Given Names &rrarr; Write Stroke (Q1-Q5)</strong>[cite: 1]</p>
                 <div class="rule-grid">
                     <div class="interactive-q-item">
                         <div class="q-header"><span class="q-prompt">1. Name: piě</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-1')">Answer</button></div>
-                        <div id="ex-a2-1" class="answer-box">丿 (piě)</div>
+                        <div id="ex-a2-1" class="answer-box">丿</div>
                     </div>
                     <div class="interactive-q-item">
                         <div class="q-header"><span class="q-prompt">2. Name: shù gōu</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-2')">Answer</button></div>
-                        <div id="ex-a2-2" class="answer-box">亅 (shù gōu)</div>
+                        <div id="ex-a2-2" class="answer-box">亅</div>
                     </div>
                     <div class="interactive-q-item">
                         <div class="q-header"><span class="q-prompt">3. Name: héng zhé</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-3')">Answer</button></div>
-                        <div id="ex-a2-3" class="answer-box">𠃍 (héng zhé)</div>
+                        <div id="ex-a2-3" class="answer-box">𠃍</div>
                     </div>
                     <div class="interactive-q-item">
                         <div class="q-header"><span class="q-prompt">4. Name: héng piě</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-4')">Answer</button></div>
-                        <div id="ex-a2-4" class="answer-box">㇇ (héng piě)</div>
+                        <div id="ex-a2-4" class="answer-box">㇇</div>
                     </div>
                     <div class="interactive-q-item">
                         <div class="q-header"><span class="q-prompt">5. Name: shù zhé zhé gōu</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-5')">Answer</button></div>
-                        <div id="ex-a2-5" class="answer-box">ㄅ (shù zhé zhé gōu)</div>
+                        <div id="ex-a2-5" class="answer-box">ㄅ</div>
                     </div>
                 </div>
 
-                <p style="margin-top:20px;"><strong>Part 2: Given Stroke &rarr; Write Name (Q6-Q10)</strong></p>
+                <p style="margin-top:20px;"><strong>Part 2: Given Stroke &rrarr; Write Name (Q6-Q10)</strong>[cite: 1]</p>
                 <div class="rule-grid">
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">6. Stroke: 乛</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-6')">Answer</button></div>
-                        <div id="ex-a2-6" class="answer-box">héng gōu</div>
+                        <div class="q-header"><span class="q-prompt">6. Stroke: 乙</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-6')">Answer</button></div>
+                        <div id="ex-a2-6" class="answer-box">héng zhé wān gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">7. Stroke: 𠃊</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-7')">Answer</button></div>
-                        <div id="ex-a2-7" class="answer-box">shù zhé</div>
+                        <div class="q-header"><span class="q-prompt">7. Stroke: 𡿨</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-7')">Answer</button></div>
+                        <div id="ex-a2-7" class="answer-box">piě diǎn</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">8. Stroke: 亅</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-8')">Answer</button></div>
-                        <div id="ex-a2-8" class="answer-box">shù gōu</div>
+                        <div class="q-header"><span class="q-prompt">8. Stroke: ㇏</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-8')">Answer</button></div>
+                        <div id="ex-a2-8" class="answer-box">nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">9. Stroke: 𠃋</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-9')">Answer</button></div>
-                        <div id="ex-a2-9" class="answer-box">piě zhé</div>
+                        <div class="q-header"><span class="q-prompt">9. Stroke: ㇀</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-9')">Answer</button></div>
+                        <div id="ex-a2-9" class="answer-box">tí</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">10. Stroke: 乚</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-10')">Answer</button></div>
-                        <div id="ex-a2-10" class="answer-box">shù wān gōu</div>
+                        <div class="q-header"><span class="q-prompt">10. Stroke: 𠃊</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a2-10')">Answer</button></div>
+                        <div id="ex-a2-10" class="answer-box">shù zhé</div>
                     </div>
                 </div>
             </div>
@@ -1137,63 +1268,63 @@
                     <span>Ex B: Identify Stroke Order (Pages 11-12)</span>
                     <span class="page-badge">KLXHY pg 11-12</span>
                 </h3>
-                <p>Write the names of the basic strokes in correct order for all 14 textbook characters:</p>
+                <p>Write the names of the basic strokes in correct order for all 14 textbook characters:[cite: 1]</p>
 
                 <div class="rule-grid">
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">1. 人 (rén) - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-1')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">1. 人 - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-1')">Answer</button></div>
                         <div id="ex-b-1" class="answer-box">1st: piě | 2nd: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">2. 丁 (dīng) - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-2')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">2. 丁 - 2 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-2')">Answer</button></div>
                         <div id="ex-b-2" class="answer-box">1st: héng | 2nd: shù gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">3. 大 (dà) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-3')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">3. 大 - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-3')">Answer</button></div>
                         <div id="ex-b-3" class="answer-box">1st: héng | 2nd: piě | 3rd: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">4. 马 (mǎ) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-4')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">4. 马 - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-4')">Answer</button></div>
                         <div id="ex-b-4" class="answer-box">1st: héng zhé | 2nd: shù zhé zhé gōu | 3rd: héng</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">5. 小 (xiǎo) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-5')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">5. 小 - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-5')">Answer</button></div>
                         <div id="ex-b-5" class="answer-box">1st: shù gōu | 2nd: diǎn (left) | 3rd: diǎn (right)</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">6. 门 (mén) - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-6')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">6. 门 - 3 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-6')">Answer</button></div>
                         <div id="ex-b-6" class="answer-box">1st: diǎn | 2nd: shù | 3rd: héng zhé gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">7. 木 (mù) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-7')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">7. 木 - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-7')">Answer</button></div>
                         <div id="ex-b-7" class="answer-box">1st: héng | 2nd: shù | 3rd: piě | 4th: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">8. 六 (liù) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-8')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">8. 六 - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-8')">Answer</button></div>
                         <div id="ex-b-8" class="answer-box">1st: diǎn | 2nd: héng | 3rd: piě | 4th: diǎn</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">9. 中 (zhōng) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-9')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">9. 中 - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-9')">Answer</button></div>
                         <div id="ex-b-9" class="answer-box">1st: shù | 2nd: héng zhé | 3rd: héng | 4th: shù</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">10. 火 (huǒ) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-10')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">10. 火 - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-10')">Answer</button></div>
                         <div id="ex-b-10" class="answer-box">1st: diǎn | 2nd: piě | 3rd: piě | 4th: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">11. 手 (shǒu) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-11')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">11. 手 - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-11')">Answer</button></div>
                         <div id="ex-b-11" class="answer-box">1st: piě | 2nd: héng | 3rd: héng | 4th: shù gōu</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">12. 水 (shuǐ) - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-12')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">12. 水 - 4 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-12')">Answer</button></div>
                         <div id="ex-b-12" class="answer-box">1st: shù gōu | 2nd: héng piě | 3rd: piě | 4th: nà</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">13. 白 (bái) - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-13')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">13. 白 - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-13')">Answer</button></div>
                         <div id="ex-b-13" class="answer-box">1st: piě | 2nd: shù | 3rd: héng zhé | 4th: héng | 5th: héng</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt hanzi-text">14. 汉 (hàn) - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-14')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt hanzi-text">14. 汉 - 5 strokes</span> <button class="reveal-btn" onclick="toggleAnswer('ex-b-14')">Answer</button></div>
                         <div id="ex-b-14" class="answer-box">1st: diǎn | 2nd: diǎn | 3rd: tí | 4th: héng piě | 5th: nà</div>
                     </div>
                 </div>
@@ -1205,89 +1336,89 @@
                     <span>Ex C: Classify Character Types (Page 12)</span>
                     <span class="page-badge">KLXHY pg 12</span>
                 </h3>
-                <p>Classify each character as "Single-Component (S)" or "Multi-Component (M)":</p>
+                <p>Classify each character as "Single-Component" or "Multi-Component":[cite: 1]</p>
 
                 <div class="rule-grid hanzi-text">
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">1. 木 (mù)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-1')">Answer</button></div>
-                        <div id="ex-c-1" class="answer-box">Single-Component (S)</div>
+                        <div class="q-header"><span class="q-prompt">1. 木</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-1')">Answer</button></div>
+                        <div id="ex-c-1" class="answer-box">Single-Component</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">2. 观 (guān)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-2')">Answer</button></div>
-                        <div id="ex-c-2" class="answer-box">Multi-Component (M)</div>
+                        <div class="q-header"><span class="q-prompt">2. 观</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-2')">Answer</button></div>
+                        <div id="ex-c-2" class="answer-box">Multi-Component</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">3. 田 (tián)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-3')">Answer</button></div>
-                        <div id="ex-c-3" class="answer-box">Single-Component (S)</div>
+                        <div class="q-header"><span class="q-prompt">3. 田</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-3')">Answer</button></div>
+                        <div id="ex-c-3" class="answer-box">Single-Component</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">4. 好 (hǎo)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-4')">Answer</button></div>
-                        <div id="ex-c-4" class="answer-box">Multi-Component (M)</div>
+                        <div class="q-header"><span class="q-prompt">4. 好</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-4')">Answer</button></div>
+                        <div id="ex-c-4" class="answer-box">Multi-Component</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">5. 朋 (péng)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-5')">Answer</button></div>
-                        <div id="ex-c-5" class="answer-box">Multi-Component (M)</div>
+                        <div class="q-header"><span class="q-prompt">5. 朋</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-5')">Answer</button></div>
+                        <div id="ex-c-5" class="answer-box">Multi-Component</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">6. 水 (shuǐ)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-6')">Answer</button></div>
-                        <div id="ex-c-6" class="answer-box">Single-Component (S)</div>
+                        <div class="q-header"><span class="q-prompt">6. 水</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-6')">Answer</button></div>
+                        <div id="ex-c-6" class="answer-box">Single-Component</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">7. 园 (yuán)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-7')">Answer</button></div>
-                        <div id="ex-c-7" class="answer-box">Multi-Component (M)</div>
+                        <div class="q-header"><span class="q-prompt">7. 园</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-7')">Answer</button></div>
+                        <div id="ex-c-7" class="answer-box">Multi-Component</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">8. 马 (mǎ)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-8')">Answer</button></div>
-                        <div id="ex-c-8" class="answer-box">Single-Component (S)</div>
+                        <div class="q-header"><span class="q-prompt">8. 马</span> <button class="reveal-btn" onclick="toggleAnswer('ex-c-8')">Answer</button></div>
+                        <div id="ex-c-8" class="answer-box">Single-Component</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Exercise D: Identify Multi-Component Structures (Page 13, #1 corrected to 品) -->
+            <!-- Exercise D: Identify Multi-Component Structures (Page 13, #1 品) -->
             <div class="exercise-card">
                 <h3>
                     <span>Ex D: Identify Multi-Component Structures (Page 13)</span>
                     <span class="page-badge">KLXHY pg 13</span>
                 </h3>
-                <p>Match each character to its structure type (A. Left-Right, B. Triangle, C. Top-Bottom, D. Fully Enclosed, E. Semi-Enclosed):</p>
+                <p>Match each character to its structure type (A. Left-Right, B. Triangle, C. Top-Bottom, D. Fully Enclosed, E. Semi-Enclosed):[cite: 1]</p>
 
                 <div class="rule-grid hanzi-text">
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">1. 品 (pǐn)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-1')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">1. 品</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-1')">Answer</button></div>
                         <div id="ex-d-1" class="answer-box">B. Triangle Structure</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">2. 学 (xué)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-2')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">2. 学</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-2')">Answer</button></div>
                         <div id="ex-d-2" class="answer-box">C. Top-Bottom Structure</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">3. 医 (yī)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-3')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">3. 医</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-3')">Answer</button></div>
                         <div id="ex-d-3" class="answer-box">E. Semi-Enclosed Structure</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">4. 国 (guó)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-4')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">4. 国</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-4')">Answer</button></div>
                         <div id="ex-d-4" class="answer-box">D. Fully Enclosed Structure</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">5. 认 (rèn)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-5')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">5. 认</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-5')">Answer</button></div>
                         <div id="ex-d-5" class="answer-box">A. Left-Right Structure</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">6. 问 (wèn)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-6')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">6. 问</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-6')">Answer</button></div>
                         <div id="ex-d-6" class="answer-box">E. Semi-Enclosed Structure</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">7. 可 (kě)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-7')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">7. 可</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-7')">Answer</button></div>
                         <div id="ex-d-7" class="answer-box">E. Semi-Enclosed Structure</div>
                     </div>
                     <div class="interactive-q-item">
-                        <div class="q-header"><span class="q-prompt">8. 进 (jìn)</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-8')">Answer</button></div>
+                        <div class="q-header"><span class="q-prompt">8. 进</span> <button class="reveal-btn" onclick="toggleAnswer('ex-d-8')">Answer</button></div>
                         <div id="ex-d-8" class="answer-box">E. Semi-Enclosed Structure</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Exercise E: True or False Statements (Page 13, All 8 Questions) -->
+            <!-- Exercise E: True or False Statements (Page 13) -->
             <div class="exercise-card">
                 <h3>
                     <span>Ex E: True (√) or False (x) Statements (Page 13)</span>
@@ -1295,59 +1426,60 @@
                 </h3>
 
                 <div class="interactive-q-item">
-                    <div class="q-header"><span class="q-prompt">1. "Gōu (hook)" is part of its stroke, never a separate stroke.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-1')">Answer</button></div>
-                    <div id="ex-e-1" class="answer-box">True (√) &mdash; Hooks are attached to a stroke, not written separately.</div>
+                    <div class="q-header"><span class="q-prompt">1. "Gōu" is part of its stroke, never a separate stroke.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-1')">Answer</button></div>
+                    <div id="ex-e-1" class="answer-box">True (√) &mdash; Hooks are attached to a stroke, not written separately.[cite: 1]</div>
                 </div>
 
                 <div class="interactive-q-item">
                     <div class="q-header"><span class="q-prompt">2. "Héng zhé" is treated as one continuous stroke.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-2')">Answer</button></div>
-                    <div id="ex-e-2" class="answer-box">True (√) &mdash; Turns are written without lifting pen.</div>
+                    <div id="ex-e-2" class="answer-box">True (√) &mdash; Turns are written without lifting pen.[cite: 1]</div>
                 </div>
 
                 <div class="interactive-q-item">
                     <div class="q-header"><span class="q-prompt">3. Left-falling strokes are written after right-falling strokes.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-3')">Answer</button></div>
-                    <div id="ex-e-3" class="answer-box">False (x) &mdash; Rule: piě (left-falling) comes BEFORE nà (right-falling).</div>
+                    <div id="ex-e-3" class="answer-box">False (x) &mdash; Rule: piě comes BEFORE nà.[cite: 1]</div>
                 </div>
 
                 <div class="interactive-q-item">
                     <div class="q-header"><span class="q-prompt">4. Horizontal strokes are usually written before vertical strokes.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-4')">Answer</button></div>
-                    <div id="ex-e-4" class="answer-box">True (√) &mdash; Rule: héng before shù.</div>
+                    <div id="ex-e-4" class="answer-box">True (√) &mdash; Rule: héng before shù.[cite: 1]</div>
                 </div>
 
                 <div class="interactive-q-item">
                     <div class="q-header"><span class="q-prompt">5. A single-component character contains only one component.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-5')">Answer</button></div>
-                    <div id="ex-e-5" class="answer-box">True (√) &mdash; It cannot be split into separate parts.</div>
+                    <div id="ex-e-5" class="answer-box">True (√) &mdash; It cannot be split into separate parts.[cite: 1]</div>
                 </div>
 
                 <div class="interactive-q-item">
-                    <div class="q-header"><span class="q-prompt hanzi-text">6. A character like "明 (míng)" has a semi-enclosed structure.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-6')">Answer</button></div>
-                    <div id="ex-e-6" class="answer-box">False (x) &mdash; "明" is a Left-Right structure (日 + 月).</div>
+                    <div class="q-header"><span class="q-prompt">6. A character like "<span class="hanzi-text">明</span>" has a semi-enclosed structure.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-6')">Answer</button></div>
+                    <div id="ex-e-6" class="answer-box">False (x) &mdash; "<span class="hanzi-text">明</span>" is a Left-Right structure (<span class="hanzi-text">日 + 月</span>).[cite: 1]</div>
                 </div>
 
                 <div class="interactive-q-item">
                     <div class="q-header"><span class="q-prompt">7. In symmetrical characters, the middle stroke is written before the two sides.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-7')">Answer</button></div>
-                    <div id="ex-e-7" class="answer-box">True (√) &mdash; Rule: Middle precedes the two sides (e.g. 小, 水).</div>
+                    <div id="ex-e-7" class="answer-box">True (√) &mdash; Rule: Middle precedes the two sides (e.g. <span class="hanzi-text">小, 水</span>).[cite: 1]</div>
                 </div>
 
                 <div class="interactive-q-item">
                     <div class="q-header"><span class="q-prompt">8. In enclosed characters, the closing frame is written before the inner strokes.</span> <button class="reveal-btn" onclick="toggleAnswer('ex-e-8')">Answer</button></div>
-                    <div id="ex-e-8" class="answer-box">False (x) &mdash; Rule: Fill inside BEFORE sealing the frame.</div>
+                    <div id="ex-e-8" class="answer-box">False (x) &mdash; Rule: Fill inside BEFORE sealing the frame.[cite: 1]</div>
                 </div>
             </div>
         </div>
 
-        <!-- Section 10: Wrap-up -->
+        <!-- Section 11: Wrap-up -->
         <div id="wrapup" class="section">
             <h1>
                 <span>10. Lesson Wrap-Up & Key Takeaways</span>
             </h1>
             
-            <div style="background: #fafafa; border: 2px solid #e5e5e5; border-radius: 12px; padding: 30px;">
-                <h3 style="color: var(--primary-dark); margin-top:0;"> Core Points Summary:</h3>
+            <div style="background: var(--primary-soft); border: 2px solid #fecdd3; border-radius: 12px; padding: 30px;">
+                <h3 style="color: var(--primary-burgundy); margin-top:0;"> Core Points Summary:</h3>
                 <ul style="font-size: 1.25rem; line-height: 2;">
-                    <li><strong>Continuous Writing:</strong> All strokes with turns (<span class="kw-pinyin">zhé</span>) and hooks (<span class="kw-pinyin">gōu</span>) must be written in one continuous movement without lifting your pen.</li>
-                    <li><strong>Square Balance:</strong> Fill the imaginary square grid evenly, ensuring proper proportions whether the character has 2 or 10 strokes.</li>
-                    <li><strong>Stroke Order Master Rules:</strong> Remember <span class="kw-pinyin">héng</span> before <span class="kw-pinyin">shù</span>, <span class="kw-pinyin">piě</span> before <span class="kw-pinyin">nà</span>, and fill inside before sealing enclosed frames!</li>
+                    <li><strong>"What You Read Is What You Write":</strong> Decode complex stroke names by treating basic stroke names as action steps (<span class="kw-pinyin">zhé</span> = turn, <span class="kw-pinyin">gōu</span> = hook).</li>
+                    <li><strong>Continuous Writing:</strong> All strokes with turns (<span class="kw-pinyin">zhé</span>) and hooks (<span class="kw-pinyin">gōu</span>) must be written in one continuous movement without lifting your pen.[cite: 2]</li>
+                    <li><strong>Square Balance:</strong> Fill the imaginary square grid evenly, ensuring proper proportions whether the character has 2 or 10 strokes.[cite: 1]</li>
+                    <li><strong>Stroke Order Master Rules:</strong> Remember <span class="kw-pinyin">héng</span> before <span class="kw-pinyin">shù</span>, <span class="kw-pinyin">piě</span> before <span class="kw-pinyin">nà</span>, and fill inside before sealing enclosed frames![cite: 1]</li>
                 </ul>
             </div>
         </div>
@@ -1377,11 +1509,11 @@
             if (answerBox.classList.contains('show')) {
                 answerBox.classList.remove('show');
                 btn.innerText = 'Answer';
-                btn.style.backgroundColor = 'var(--primary)';
+                btn.style.background = 'linear-gradient(135deg, var(--primary-crimson), var(--primary-rose))';
             } else {
                 answerBox.classList.add('show');
                 btn.innerText = 'Hide';
-                btn.style.backgroundColor = '#64748b';
+                btn.style.background = '#64748b';
             }
         }
     </script>
