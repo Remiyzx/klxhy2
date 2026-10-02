@@ -183,6 +183,9 @@
         .mizige-box { width: 68px; height: 68px; display: inline-block; vertical-align: middle; margin: 2px 4px; }
         .mizige-box-lg { width: 82px; height: 80px; display: inline-block; vertical-align: middle; margin: 4px 6px; }
 
+        /* Inline Stroke SVG Icon Style for Exercise Prompt */
+        .inline-stroke-icon { width: 36px; height: 36px; vertical-align: middle; display: inline-block; }
+
         .rule-card, .exercise-card { background: #ffffff; border: 1px solid #ffe4e6; border-radius: 12px; padding: 28px; margin-bottom: 30px; border-top: 8px solid var(--kw-rule); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
         .exercise-card { border-top: 8px solid var(--primary-crimson); }
         .rule-card h3, .exercise-card h3 { margin-top: 0; display: flex; align-items: center; justify-content: space-between; }
@@ -722,6 +725,7 @@
                         <div id="ex-a1-9" class="answer-box">xié gōu</div>
                     </td>
                 </tr>
+                <!-- Item 11 wò gōu rendered with Inline SVG icon to prevent Katakana リ fallback -->
                 <tr>
                     <td><span class="kw-pinyin">wò gōu</span></td>
                     <td>
@@ -736,7 +740,15 @@
                     </td>
                     <td>"wò" = lie down. Draw a <strong>lay-down bracket</strong>, hook points inward.</td>
                     <td>
-                        <div class="q-header"><span class="q-prompt">11. ㇼ</span> <button class="reveal-btn" onclick="toggleAnswer('ex-a1-11')">Answer</button></div>
+                        <div class="q-header">
+                            <span class="q-prompt">
+                                11. 
+                                <svg class="inline-stroke-icon" viewBox="0 0 100 100">
+                                    <path d="M 20 42 Q 45 78 72 68 L 60 50" stroke="#1c1917" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                </svg>
+                            </span> 
+                            <button class="reveal-btn" onclick="toggleAnswer('ex-a1-11')">Answer</button>
+                        </div>
                         <div id="ex-a1-11" class="answer-box">wò gōu</div>
                     </td>
                 </tr>
