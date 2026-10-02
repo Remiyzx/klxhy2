@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 2 - Chinese Characters Teaching Notes</title>
-    <!-- Import Andika Font for Standard Pinyin & LXGW WenKai for Standard KaiTi Hanzi -->
+    <!-- Import Andika Font for Standard Pinyin & LXGW WenKai GB for Standard Simplified KaiTi Hanzi -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=LXGW+WenKai+TC:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=LXGW+WenKai+GB:wght@400;700&display=swap');
 
         :root {
             /* Layered Elegant Red Palette */
@@ -42,9 +42,9 @@
             font-family: 'Andika', 'Century Gothic', sans-serif !important;
         }
 
-        /* Simplified Chinese Standard Textbook KaiTi Font Stack */
+        /* Strict Simplified Chinese Standard Textbook KaiTi Font Stack (GB Standard) */
         .hanzi-text, .hanzi-text *, [class*="hanzi"], svg text {
-            font-family: 'LXGW WenKai TC', 'KaiTi', '楷体', 'STKaiti', '华文楷体', 'KaiTi_GB2312', 'DFKai-SB', serif !important;
+            font-family: 'LXGW WenKai GB', 'KaiTi', '楷体', 'STKaiti', '华文楷体', 'KaiTi_GB2312', serif !important;
         }
 
         /* Top Navigation Bar (Sticky & Frozen) */
@@ -214,7 +214,7 @@
         <div class="menu-row">
             <button class="menu-btn active" onclick="showSection('intro', this)">Intro</button>
             <button class="menu-btn" onclick="showSection('basic', this)">Basic Strokes (6)</button>
-            <button class="menu-btn" onclick="showSection('mixmatch', this)">Mix & Match Basic Strokes</button>
+            <button class="menu-btn" onclick="showSection('concept', this)">Core Concept: Read & Write</button>
             <button class="menu-btn" onclick="showSection('turns', this)">Turn Strokes (3)</button>
             <button class="menu-btn" onclick="showSection('hooks', this)">Hook Strokes (6)</button>
             <button class="menu-btn" onclick="showSection('complex', this)">Complex Strokes (5)</button>
@@ -646,7 +646,7 @@
             <!-- Supplementary Explanation Card: Why zhé vs shù / héng -->
             <div style="background: #fff8f6; border-left: 6px solid var(--primary-rose); padding: 18px 22px; border-radius: 8px; margin-top: 25px; font-size: 1.15rem;">
                 <strong style="color: var(--primary-burgundy);"> Common Question: Why is "héng zhé" NOT called "héng shù"? Why is "shù zhé" NOT called "shù héng"?</strong><br>
-                A single Chinese stroke is defined as writing in <strong>ONE continuous motion</strong> without lifting the pen from the paper. Naming it "héng shù" would sound like TWO separate strokes (1st stroke: héng, 2nd stroke: shù). Because the direction turns in the middle of a single stroke, that turning motion is named <strong>zhé (折 / Turn)</strong>. Therefore, "héng" + turn = <strong>héng zhé</strong>, and "shù" + turn = <strong>shù zhé</strong>!
+                A single Chinese stroke is defined as writing in <strong>ONE continuous motion</strong> without lifting the pen from the paper. Naming it "héng shù" would sound like TWO separate strokes (1st stroke: héng, 2nd stroke: shù). Because the direction turns in the middle of a single stroke, that turning motion is named <strong>zhé (Turn)</strong>. Therefore, "héng" + turn = <strong>héng zhé</strong>, and "shù" + turn = <strong>shù zhé</strong>!
             </div>
         </div>
 
@@ -781,7 +781,7 @@
             <!-- Supplementary Explanation Card: Why xié gōu vs nà gōu -->
             <div style="background: #fff8f6; border-left: 6px solid var(--primary-rose); padding: 18px 22px; border-radius: 8px; margin-top: 25px; font-size: 1.15rem;">
                 <strong style="color: var(--primary-burgundy);"> Common Question: Why is "xié gōu" NOT called "nà gōu"?</strong><br>
-                A standard <strong>nà (捺)</strong> stroke gradually thickens and ends with a smooth, tapered sweep toward the bottom-right &mdash; its shape cannot naturally end with a sharp upward hook flick. <strong>xié gōu</strong> has a slanted vertical stem (斜) with a sharp, upward flick (钩) pointing straight toward 12 o'clock, so it is classified as a slanted vertical hook (<strong>xié gōu</strong>), never "nà gōu"!
+                A standard <strong>nà</strong> stroke gradually thickens and ends with a smooth, tapered sweep toward the bottom-right &mdash; its shape cannot naturally end with a sharp upward hook flick. <strong>xié gōu</strong> has a slanted vertical stem with a sharp, upward flick pointing straight toward 12 o'clock, so it is classified as a slanted vertical hook (<strong>xié gōu</strong>), never "nà gōu"!
             </div>
         </div>
 
@@ -900,7 +900,7 @@
                 <span>7. Spot the Differences: Confusing Strokes!</span>
             </h1>
             
-            <p style="font-size: 1.25rem;">Compare similar strokes side-by-side in Rice Grids to spot their subtle differences:</p>
+            <p style="font-size: 1.25rem;">Compare similar strokes side-by-side in Rice Grids:</p>
 
             <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 25px;">
                 
@@ -1008,7 +1008,7 @@
             </div>
         </div>
 
-        <!-- Section 9: Stroke Order Rules (Original Pure Hanzi Examples) -->
+        <!-- Section 9: Stroke Order Rules (Original Pure Hanzi Examples from Textbook pg 9) -->
         <div id="rules" class="section">
             <h1>
                 <span>7. General Rules for Writing Characters</span>
@@ -1082,7 +1082,7 @@
             </div>
         </div>
 
-        <!-- Section 10: Character Structures (Hanzi Strictly in Examples Column Only) -->
+        <!-- Section 10: Character Structures (Visual Concept Column strictly WITHOUT Chinese Characters) -->
         <div id="structures" class="section">
             <h1>
                 <span>8. Character Structure Types</span>
@@ -1114,57 +1114,31 @@
                     </td>
                     <td class="hanzi-text"><span style="font-size:1.8em;">马</span>、<span style="font-size:1.8em;">月</span>、<span style="font-size:1.8em;">木</span>、<span style="font-size:1.8em;">人</span></td>
                 </tr>
-                <!-- Left-Right Variations -->
+                <!-- Left-Right -->
                 <tr>
-                    <td><strong>Left-Right Structure</strong><br>(Left-Right / Left-Mid-Right)</td>
+                    <td><strong>Left-Right Structure</strong></td>
                     <td class="center">
-                        <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
-                            <svg width="180" height="50" viewBox="0 0 180 50">
-                                <rect x="5" y="5" width="50" height="40" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
-                                <text x="30" y="30" font-size="13" font-weight="bold" fill="#881337" text-anchor="middle">L (Small)</text>
-                                <rect x="65" y="5" width="110" height="40" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
-                                <text x="120" y="30" font-size="13" font-weight="bold" fill="#881337" text-anchor="middle">Right (Big)</text>
-                            </svg>
-                            <svg width="180" height="45" viewBox="0 0 180 45">
-                                <rect x="5" y="5" width="52" height="35" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
-                                <text x="31" y="27" font-size="12" font-weight="bold" fill="#881337" text-anchor="middle">Left</text>
-                                <rect x="64" y="5" width="52" height="35" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
-                                <text x="90" y="27" font-size="12" font-weight="bold" fill="#881337" text-anchor="middle">Mid</text>
-                                <rect x="123" y="5" width="52" height="35" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
-                                <text x="149" y="27" font-size="12" font-weight="bold" fill="#881337" text-anchor="middle">Right</text>
-                            </svg>
-                        </div>
+                        <svg width="180" height="70" viewBox="0 0 180 70">
+                            <rect x="5" y="5" width="80" height="60" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="45" y="42" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Left</text>
+                            <rect x="95" y="5" width="80" height="60" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="135" y="42" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Right</text>
+                        </svg>
                     </td>
-                    <td class="hanzi-text">
-                        Left-Right: <span style="font-size:1.6em;">好、你、外</span><br>
-                        Left-Mid-Right: <span style="font-size:1.6em;">谢</span>
-                    </td>
+                    <td class="hanzi-text"><span style="font-size:1.8em;">好</span>、<span style="font-size:1.8em;">你</span>、<span style="font-size:1.8em;">外</span>、<span style="font-size:1.8em;">谢</span></td>
                 </tr>
-                <!-- Top-Bottom Variations -->
+                <!-- Top-Bottom -->
                 <tr>
-                    <td><strong>Top-Bottom Structure</strong><br>(Top-Bottom / Top-Mid-Bottom)</td>
+                    <td><strong>Top-Bottom Structure</strong></td>
                     <td class="center">
-                        <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
-                            <svg width="180" height="50" viewBox="0 0 180 50">
-                                <rect x="15" y="4" width="150" height="18" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
-                                <text x="90" y="18" font-size="11" font-weight="bold" fill="#881337" text-anchor="middle">Top (Small)</text>
-                                <rect x="15" y="26" width="150" height="20" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
-                                <text x="90" y="41" font-size="11" font-weight="bold" fill="#881337" text-anchor="middle">Bottom (Big)</text>
-                            </svg>
-                            <svg width="180" height="50" viewBox="0 0 180 50">
-                                <rect x="15" y="3" width="150" height="12" rx="3" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
-                                <text x="90" y="13" font-size="10" font-weight="bold" fill="#881337" text-anchor="middle">Top</text>
-                                <rect x="15" y="18" width="150" height="12" rx="3" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
-                                <text x="90" y="28" font-size="10" font-weight="bold" fill="#881337" text-anchor="middle">Mid</text>
-                                <rect x="15" y="33" width="150" height="14" rx="3" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
-                                <text x="90" y="44" font-size="10" font-weight="bold" fill="#881337" text-anchor="middle">Bottom</text>
-                            </svg>
-                        </div>
+                        <svg width="180" height="85" viewBox="0 0 180 85">
+                            <rect x="15" y="5" width="150" height="34" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="90" y="28" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Top Component</text>
+                            <rect x="15" y="45" width="150" height="34" rx="6" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
+                            <text x="90" y="68" font-size="16" font-weight="bold" fill="#881337" text-anchor="middle">Bottom Component</text>
+                        </svg>
                     </td>
-                    <td class="hanzi-text">
-                        Top-Bottom: <span style="font-size:1.6em;">字、早</span><br>
-                        Top-Mid-Bottom: <span style="font-size:1.6em;">点、意</span>
-                    </td>
+                    <td class="hanzi-text"><span style="font-size:1.8em;">字</span>、<span style="font-size:1.8em;">早</span>、<span style="font-size:1.8em;">点</span>、<span style="font-size:1.8em;">意</span></td>
                 </tr>
                 <!-- Triangle Structure -->
                 <tr>
@@ -1181,37 +1155,20 @@
                     </td>
                     <td class="hanzi-text"><span style="font-size:1.8em;">森</span>、<span style="font-size:1.8em;">品</span></td>
                 </tr>
-                <!-- Semi-Enclosed Variations -->
+                <!-- Enclosed Structure (Rebuilt with clean distinction) -->
                 <tr>
-                    <td><strong>Semi-Enclosed Structure</strong></td>
-                    <td class="center">
-                        <div style="font-size:0.9em; font-weight:bold; color:var(--primary-burgundy); margin-bottom:4px;">Surround 2 or 3 sides:</div>
-                        <svg width="180" height="65" viewBox="0 0 180 65">
-                            <rect x="15" y="5" width="150" height="55" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="2.5" stroke-dasharray="5,3"/>
-                            <rect x="40" y="16" width="100" height="32" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="1.5"/>
-                            <text x="90" y="37" font-size="13" font-weight="bold" fill="#881337" text-anchor="middle">Inside</text>
-                        </svg>
-                    </td>
-                    <td class="hanzi-text" style="font-size:1.15em; line-height:1.8;">
-                        • Top-Left: <span style="font-size:1.3em;">店</span><br>
-                        • Top-Right: <span style="font-size:1.3em;">句</span><br>
-                        • Bottom-Left: <span style="font-size:1.3em;">进</span><br>
-                        • Left-Open: <span style="font-size:1.3em;">区</span><br>
-                        • Bottom-Open: <span style="font-size:1.3em;">网</span><br>
-                        • Top-Open: <span style="font-size:1.3em;">凶</span>
-                    </td>
-                </tr>
-                <!-- Fully Enclosed -->
-                <tr>
-                    <td><strong>Fully Enclosed Structure</strong></td>
+                    <td><strong>Enclosed Structure</strong></td>
                     <td class="center">
                         <svg width="180" height="75" viewBox="0 0 180 75">
-                            <rect x="15" y="5" width="150" height="65" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="3"/>
+                            <rect x="15" y="5" width="150" height="65" rx="6" fill="#fff1f2" stroke="#be123c" stroke-width="3" stroke-dasharray="6,3"/>
                             <rect x="35" y="18" width="110" height="38" rx="4" fill="#ffe4e6" stroke="#be123c" stroke-width="2"/>
-                            <text x="90" y="42" font-size="14" font-weight="bold" fill="#881337" text-anchor="middle">Inside</text>
+                            <text x="90" y="42" font-size="14" font-weight="bold" fill="#881337" text-anchor="middle">Inside Component</text>
                         </svg>
                     </td>
-                    <td class="hanzi-text"><span style="font-size:1.8em;">国</span>、<span style="font-size:1.8em;">四</span></td>
+                    <td class="hanzi-text" style="line-height:2.0;">
+                        <strong>Semi-Enclosed:</strong> <span style="font-size:1.5em;">店、句、进、网、区、凶</span><br>
+                        <strong>Fully Enclosed:</strong> <span style="font-size:1.5em;">国、四</span>
+                    </td>
                 </tr>
             </table>
         </div>
